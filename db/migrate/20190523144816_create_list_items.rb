@@ -5,8 +5,8 @@ class CreateListItems < ActiveRecord::Migration[5.2]
       t.string :url
       t.text :description
       t.string :photo
-      t.integer :upvote
-      t.integer :downvote
+      t.integer :upvote, default: 0
+      t.integer :downvote, default: 0
       t.references :list, foreign_key: true
 
       t.timestamps
