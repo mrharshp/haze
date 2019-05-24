@@ -1,8 +1,24 @@
-<%= @group.name %>
+<h2><%= link_to @group.name, edit_group_path(@group) %></h2>
 <br>
-<% if policy(@group).edit? %>
-  <%= link_to "Edit Group Profile", edit_group_path %>
+<h5>Invite your friends!</h5>
+<%= form_tag group_path(@group), method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Add a friend"
+  %>
+<% end %>
+<%= link_to "Invite your friends!", new_group_group_membership_path(@group) %>
+<br>
+<% @users.each do |u| %>
+    <%= u.name %>, <%= u.email %>
+    <%= link_to "Add to group", group_group_memberships_path(@group, user: u), method: :post %>
 <% end %>
 <br>
-<%= link_to "Invite your friends!", new_group_group_membership_path(@group) %>
+<br>
+<h5>MEMBERS</h5>
+<% @group.group_memberships.each do |member| %>
+  <%= member.user.name %>, <%= member.user.email %>
+  <br>
+<% end %>
 <%= link_to "Go to list", group_lists_path(@group) %>

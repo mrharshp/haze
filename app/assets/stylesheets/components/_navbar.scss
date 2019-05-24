@@ -10,3 +10,22 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.landing {
+  background-image: linear-gradient(rgba(100,100,100,0.2), rgba(255,255,255,0.1)), asset-url('home_page.png');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mx-auto {
+  .btn{
+    .btn-info{
+      width: 75vw;
+      .a{
+      }
+    }
+  }
+}

@@ -1,10 +1,11 @@
-<!-- <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p> -->
+<div class="landing">
 
-<div class='mx-auto my-auto'>
-  <%= image_tag 'home_page.png' %>
-  <%= link_to "Sign in", new_user_session_path, style: 'position: relative; bottom: 2000px; left: 500px;'
- %>
-  <%= link_to "Sign up", new_user_registration_path, style: 'position: relative; bottom: 2000px; left: 1000px;' %>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete, style: 'position: relative; bottom: 2000px; left: 750px;' %>
+    <div class="py-5">
+      <h1 style="text-align: center; color: white;">H A Z E</h1>
+      <br>
+      <br>
+      <%= link_to "Sign in", new_user_session_path, class: 'btn btn-info mx-auto d-flex justify-content-center', style: "width: 75vw;"%>
+      <br>
+      <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-warning mx-auto d-flex justify-content-center', style: "width: 75vw;" %>
+    </div>
 </div>
