@@ -7,6 +7,13 @@ class GroupsController < ApplicationController
   end
 
   def show
+    # @membership = GroupMembership.new
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR email ILIKE :query"
+      @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @users = []
+    end
   end
 
   def new
