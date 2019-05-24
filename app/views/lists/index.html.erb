@@ -20,8 +20,8 @@
     <% end %>
     <%= link_to "Edit", edit_group_list_path(@group, list), class: "btn btn-primary" %>
     <%= link_to "Delete", group_list_path(@group, list), method: :delete, class: "btn btn-primary" %>
+    <%= link_to "See list items", group_list_path(@group, list) %>
   <% end %>
   <br>
   <br>
-  <%= link_to "Add a new list", new_group_list_path(@group), class: "btn btn-primary" %>
 </div>
