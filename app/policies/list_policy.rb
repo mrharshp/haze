@@ -14,7 +14,7 @@ class ListPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == current_user
+    record.group.users
   end
 
   def update?
