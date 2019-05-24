@@ -2,9 +2,8 @@
 <p>Find me in app/views/pages/home.html.erb</p> -->
 
 <div class='mx-auto my-auto'>
-  <%= image_tag 'home_page.png' %>
+  <%= image_tag 'home_page.png', crop: :fit %>
   <%= link_to "Sign in", new_user_session_path, style: 'position: relative; bottom: 2000px; left: 500px;'
  %>
   <%= link_to "Sign up", new_user_registration_path, style: 'position: relative; bottom: 2000px; left: 1000px;' %>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete, style: 'position: relative; bottom: 2000px; left: 750px;' %>
 </div>
