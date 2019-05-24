@@ -1,1 +1,7 @@
 <%= @group.name %>
+<br>
+<% if policy(@group).edit? %>
+  <%= link_to "Edit Group Profile", edit_group_path %>
+<% end %>
+<br>
+<%= link_to "Invite your friends!", new_group_group_membership_path(@group) %>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :groups do
     resources :lists
+    resources :group_memberships, only: [:new, :create, :destroy]
   end
   resources :users
 end

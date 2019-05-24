@@ -1,4 +1,17 @@
 class UsersController < ApplicationController
+  def index
+    if params[:query].present?
+      sql_query = " \
+        user.name ILIKE :query \
+        OR user.email ILIKE :query \
+      "
+      @users = User.where(sql_query, query: "%#{params[:query]}%")
+    end
+  end
+
+  def edit
+    @user = user
+  end
 
   def show
     @user = current_user
