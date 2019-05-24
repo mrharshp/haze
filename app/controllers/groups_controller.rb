@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = policy_scope(Group)
+    @user = current_user
   end
 
   def show
