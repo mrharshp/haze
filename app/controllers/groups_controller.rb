@@ -6,7 +6,6 @@ class GroupsController < ApplicationController
   end
 
   def show
-    authorize @group
   end
 
   def new
@@ -16,10 +15,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group_membership = GroupMembership.new
     authorize @group
+    @group_membership = GroupMembership.new
     @group_membership.group = @group
-    @group_membership.user = user
+    @group_membership.user = current_user
+    @group_membership.save
     if @group.save
       redirect_to group_path(@group)
     else
@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
 
   def find_group
     @group = Group.find(params[:id])
-
+    authorize @group
   end
 
   def group_params
