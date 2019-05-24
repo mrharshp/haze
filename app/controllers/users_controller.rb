@@ -1,16 +1,6 @@
 class UsersController < ApplicationController
   def index
-    if params[:query].present?
-      sql_query = " \
-        user.name ILIKE :query \
-        OR user.email ILIKE :query \
-      "
-      @users = User.where(sql_query, query: "%#{params[:query]}%")
-    end
-  end
-
-  def edit
-    @user = user
+    @users = policy_scope(User)
   end
 
   def show
@@ -18,19 +8,19 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  # def edit
-  #   @user = user
-  # end
+  def edit
+    @user = current_user
+  end
 
-  # def update
-  #   @user = user
-  #   @user.update(user_params)
-  #   # redirect_to my_profile_path(@user)
-  # end
+  def update
+    @user = current_user
+    @user.update(user_params)
+    # redirect_to my_profile_path(@user)
+  end
 
   private
 
-  # def user_params
-  #   params.require(:user).permit(:name, :email)
-  # end
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
 end
