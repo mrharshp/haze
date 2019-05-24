@@ -3,25 +3,29 @@ class GroupPolicy < ApplicationPolicy
     def resolve
       scope.all.joins(:group_memberships).merge(GroupMembership.where(user: user))
     end
+  end
 
-    def show?
-      record.users.include?(user)
-    end
+  def show?
+    record.users.include?(user)
+  end
 
-    def create?
-      true
-    end
+  def new?
+    true
+  end
 
-    def edit?
-      record.users.include?(user)
-    end
+  def create?
+    true
+  end
 
-    def update?
-      edit?
-    end
+  def edit?
+    record.users.include?(user)
+  end
 
-    def destroy?
-      edit?
-    end
+  def update?
+    edit?
+  end
+
+  def destroy?
+    edit?
   end
 end
