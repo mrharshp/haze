@@ -6,7 +6,6 @@ class ListItemsController < ApplicationController
   end
 
   def show
-    # @list = List.find(params[:list_id])
   end
 
   def new
@@ -17,7 +16,6 @@ class ListItemsController < ApplicationController
   def create
     @list_item = List_item.new(list_item_params)
     authorize @list_item
-    # @list = List.find(params[:list_id])
     if @list_item.save
       redirect_to group_list_path(@group, @list)
     else
@@ -30,7 +28,6 @@ class ListItemsController < ApplicationController
   end
 
   def update
-    # @list = List.find(params[:list_id])
     @list_item.update(list_item_params)
     authorize @list_item
     redirect_to group_list_path(@group, @list)
