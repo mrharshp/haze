@@ -1,0 +1,12 @@
+.header3 {
+  background-color: $light-gray;
+  color: $blue;
+  width: 370px;
+  height: 112px;
+  position: relative;
+  h3 {
+    position: absolute;
+    left: 20px;
+    top: 40px;
+  }
+}

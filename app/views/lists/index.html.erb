@@ -1,6 +1,15 @@
 <div class="container">
+  <div class="header3">
+    <% if @group.name.length < 15 %>
+      <h3> < <%= @group.name %> Lists</h3>
+    <% else %>
+      <h3> < <%= @group.name %> L...</h3>
+    <% end %>
+  </div>
   <% @lists.each do |list| %>
-    <h1><%= list.name %></h1>
+    <%= link_to group_list_path(@group, list) do %>
+    <h2><%= list.name %></h2>
+    <% end %>
     <%= link_to "Edit", edit_group_list_path(@group, list), class: "btn btn-primary" %>
     <%= link_to "Delete", group_list_path(@group, list), method: :delete, class: "btn btn-primary" %>
   <% end %>
