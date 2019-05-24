@@ -30,10 +30,11 @@ class ListItemsController < ApplicationController
 
   def update
     @list = List.find(params[:list_id])
-    if @list_item.user == user
+    # @list_item.user == user
       @list_item.update(list_item_params)
       authorize @list_item
       redirect_to group_list_path(@list)
+    end
   end
 
 

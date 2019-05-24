@@ -12,3 +12,64 @@ $body-font: "Josefin Sans", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+
+// // FRONT END EFFICIENCY BELOW!!!!
+
+// _orientation.scss
+
+// @mixin absCenter {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .blahblah {
+//   @include absCenter;
+//   efnerfni:
+//   wernkfnw:
+//   adcajks
+// }
+
+
+// .absCenter {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .absCenterColumn {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+
+// .md-input {
+//   width: 80vw;
+// }
+
+// .sm-input {
+//   width: 40vw;
+// }
+
+// .red-button {
+//   padding: 5px 20px;
+//   background-color: red;
+//   border-radius: 50px;
+// }
+
+
+// .no-margin {
+//   margin: 0;
+// }
+
+// .20tb-margin {
+
+// }
+
+// JAVASCRIPT HOMEPAGE ANIMATIONS
+// onLoad {
+//   Document.add("animateleft")
+//   Document.add("animateright")
+// }
