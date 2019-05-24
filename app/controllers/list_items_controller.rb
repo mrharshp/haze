@@ -1,10 +1,12 @@
 class ListItemsController < ApplicationController
-  before_action :find_item, only: [:show, :edit, :update, :create, :destroy]
+  before_action :find_list_item, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @list_items = policy_scope(ListItem)
+  end
 
   def show
-    @list_item.user = user
-    @list = List.find(params[:list_id])
-    @list_item = List_item.find(params[:list_item_id])
+    # @list = List.find(params[:list_id])
   end
 
   def new
@@ -13,12 +15,11 @@ class ListItemsController < ApplicationController
   end
 
   def create
-    @list_item = List_item.new
+    @list_item = List_item.new(list_item_params)
     authorize @list_item
-    @list_item.user = user
-    @list = List.find(params[:list_id])
+    # @list = List.find(params[:list_id])
     if @list_item.save
-      redirect_to group_list_path(@list)
+      redirect_to group_list_path(@group, @list)
     else
       render :new
     end
@@ -29,26 +30,26 @@ class ListItemsController < ApplicationController
   end
 
   def update
-    @list = List.find(params[:list_id])
-    if @list_item.user == user
-      @list_item.update(list_item_params)
-      authorize @list_item
-      redirect_to group_list_path(@list)
+    # @list = List.find(params[:list_id])
+    @list_item.update(list_item_params)
+    authorize @list_item
+    redirect_to group_list_path(@group, @list)
   end
 
-
   def destroy
-    if @list_item.user == user
     @list_item.destroy
     authorize @list_item
-    redirect_to group_list_path(@list)
-    end
+    redirect_to group_list_path(@group, @list)
   end
 
   private
 
   def list_item_params
     params.require(:list_item).permit(:title, :url, :upvote, :downvote, :description, :photo)
+  end
+
+  def find_list_item
+    @list_item = List_item.find(params[:list_item_id])
     authorize @list_item
   end
 end
