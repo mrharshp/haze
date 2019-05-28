@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2019_05_24_143207) do
     t.string "url"
     t.text "description"
     t.string "photo"
-    t.integer "upvote"
-    t.integer "downvote"
+    t.integer "upvote", default: 0
+    t.integer "downvote", default: 0
     t.bigint "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

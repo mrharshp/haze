@@ -18,10 +18,11 @@
         </div>
       <% end %>
     <% end %>
-    <%= link_to "Edit", edit_group_list_path(@group, list), class: "btn btn-primary" %>
-    <%= link_to "Delete", group_list_path(@group, list), method: :delete, class: "btn btn-primary" %>
+    <br>
+    <%= link_to "Edit", edit_group_list_path(@group, list) %>
+    <%= link_to "Delete", group_list_path(@group, list), method: :delete %>
     <%= link_to "See list items", group_list_path(@group, list) %>
+<br>
   <% end %>
-  <br>
   <br>
 </div>
