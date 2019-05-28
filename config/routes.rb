@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     resources :group_memberships, only: [:new, :create, :destroy]
   end
   resources :users
+
+  mount ActionCable.server => "/cable"
+
+  resources :conversations, only: [:show] do
+    resources :messages, only: [:create]
+  end
+  
   resources :list_items do
     member do
       post "/upvote", to: "list_items#upvote"
