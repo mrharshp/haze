@@ -1,5 +1,5 @@
 class ListItemsController < ApplicationController
-  before_action :find_list_item, only: [:show, :edit, :update, :destroy]
+  before_action :find_list_item, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :footer, only: [:edit, :new]
 
   def index
@@ -51,6 +51,16 @@ class ListItemsController < ApplicationController
     @list_item.destroy
     authorize @list_item
     redirect_to group_list_path(@group, @list)
+  end
+
+  def upvote
+    @list_item.upvote += 1
+    @list_item.save
+  end
+
+  def downvote
+    @list_item.downvote += 1
+    @list_item.save
   end
 
   private
