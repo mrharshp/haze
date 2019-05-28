@@ -8,6 +8,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @group = Group.find(params[:group_id])
     @list = List.find(params[:id])
     @list_items = ListItem.where(list: @list)
     authorize @list

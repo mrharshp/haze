@@ -1,10 +1,17 @@
 <div class="header3">
   <% if @list.name.length < 9 %>
-    <h3> <%= link_to "<", group_lists_path(@group) %>   <%= @list.name %> Options</h3>
+    <h3> 
+      <%= link_to "<", group_lists_path(@group) %>
+      <%= link_to "   #{@list.name} Options", edit_group_list_path(@group, @list) %>
+    </h3>
   <% else %>
-    <h3> <%= link_to "<", group_lists_path(@group) %>   <%= @list.name %> Opt...</h3>
+    <h3> 
+      <%= link_to "<", group_lists_path(@group) %>
+      <%= link_to "   #{@list.name} Opt...", edit_group_list_path(@group, @list) %>    
+    </h3>
   <% end %>
 </div>
 
 <%= render 'list_items/index' %>
+<%= link_to "Add list item", new_group_list_list_item_path(@group, @list) %>
 
