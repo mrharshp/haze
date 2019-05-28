@@ -8,13 +8,6 @@ class GroupsController < ApplicationController
   end
 
   def show
-    # @membership = GroupMembership.new
-    if params[:query].present?
-      sql_query = "name ILIKE :query OR email ILIKE :query"
-      @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
-    else
-      @users = []
-    end
   end
 
   def new
@@ -37,12 +30,17 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR email ILIKE :query"
+      @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @users = []
+    end
   end
 
   def update
     authorize @group
     @group.update(group_params)
-    redirect_to group_path(@group)
   end
 
   private
