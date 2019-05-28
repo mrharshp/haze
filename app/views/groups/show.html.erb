@@ -1,5 +1,9 @@
-<h2><%= link_to @group.name, edit_group_path(@group) %></h2>
-<br>
+<div class="header3">
+  <h3><%= link_to "<", groups_path(@group) %>
+      <%= link_to @group.name, edit_group_path(@group) %>
+  </h3>
+</div>
+<%= link_to "Lists", group_lists_path(@group), class: "btn btn-primary w-100" %>
 <h5>Invite your friends!</h5>
 <%= form_tag group_path(@group), method: :get do %>
   <%= text_field_tag :query,
@@ -20,4 +24,3 @@
   <%= member.user.name %>, <%= member.user.email %>
   <br>
 <% end %>
-<%= link_to "Go to list", group_lists_path(@group) %>

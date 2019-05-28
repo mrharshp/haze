@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update]
-  before_action :footer
+  before_action :footer, only: [:show, :new, :edit]
 
   def index
     @groups = policy_scope(Group)
