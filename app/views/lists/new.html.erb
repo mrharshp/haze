@@ -1,8 +1,11 @@
+<div class="header3">
+   <h3><%= link_to "<", group_lists_path(@group) %></h3>
+   <h3 class="uppercase">Create a new list</h3>
+</div>
 <div class="container">
   <%= simple_form_for [@group, @list] do |f| %>
     <%= f.input :name %>
     <%= f.input :photo %>
     <%= f.submit "Create a new List", class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "Back", group_lists_path(@group), class: "btn btn-info" %>
 </div>

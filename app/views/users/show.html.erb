@@ -1,3 +1,6 @@
+<div class="header3">
+  <h3 class="uppercase">My profile</h3>
+</div>
 <br>
 <br>
 <div class="container">
@@ -10,5 +13,8 @@
    <br>
    <p><%= link_to "Update Profile", edit_user_registration_path(@user) %></p>
    <p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
- </div>
+  </div>  
+</div>
+<div class="footer">
+  <%= link_to "Groups", groups_path, class: "link-white" %>
 </div>

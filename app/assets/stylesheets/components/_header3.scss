@@ -1,12 +1,24 @@
 .header3 {
-  background-color: $light-gray;
-  color: $blue;
   width: 100%;
   height: 112px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: asset-url('banner_yellow.png');
+  background-size: cover;
+  background-position: center;
+  color: $gray;
+  margin-bottom: 5px;
   h3 {
-    position: absolute;
-    left: 20px;
-    top: 40px;
+    margin-left: 5vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    a {
+      color: $gray !important;
+    }
   }
+}
+h3.uppercase {
+  text-transform: uppercase;
 }
