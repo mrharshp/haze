@@ -15,8 +15,10 @@
   <% end %>
 <% end %>
 <br>
-<%= link_to "Create a new group", new_group_path, class: "btn btn-warning" %>
-
+<%= link_to new_group_path, class: "button-plus-sm" do %>
+<i class="fas fa-plus"></i>
+<% end %>
+<%= link_to "Create a new group", new_group_path %>
 <div class="footer">
   <%= link_to "My Profile", user_path(current_user), class: "link-white" %>
 </div>

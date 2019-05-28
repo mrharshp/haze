@@ -22,6 +22,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     @list.group = @group
+    @list.user = current_user
     authorize @list
     if @list.save
       redirect_to group_lists_path(@group)

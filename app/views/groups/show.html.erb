@@ -2,7 +2,55 @@
   <h3><%= link_to "<", groups_path(@group) %></h3>
   <h3 class="uppercase"><%= link_to @group.name, edit_group_path(@group) %></h3>
 </div>
+<%= link_to edit_group_path(@group), class: "button-plus-sm" do %>
+  <i class="fas fa-plus"></i>
+<% end %>
+<p class="label-for-plus-btn">invite</p>
 <div class="d-flex m-2">
-  <button class="btn btn-primary w-50">Expenses</button>
-  <%= link_to "Lists", group_lists_path(@group), class: "btn btn-primary w-50" %>
+  <button class="btn btn-primary w-50 mr-2" style="color: white;">Expenses</button>
+  <%= link_to "Lists", group_lists_path(@group), class: "btn btn-primary w-50", style: "color: white;" %>
 </div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="chat-header"><h4><%= @group.name %></h4></div>
+      <div class="messages">
+        <% @group.conversation.messages.each do |m| %>
+          <%= render "messages/message", message: m, group: @group, user_is_messages_author: m.user == current_user %>
+        <% end %>
+      </div>
+      <div id="create-message">
+        <%= simple_form_for [ @group.conversation, Message.new ], remote: true do |f| %>
+        <%= f.input :content, as: :string, label: false %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+    mess = document.querySelectorAll('.message');
+    lastMessage = mess[mess.length - 1];
+    if (lastMessage !== undefined) {
+      lastMessage.scrollIntoView();
+    }
+    App['conversation_<%= @group.conversation.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ConversationsChannel', conversation_id: <%= @group.conversation.id %> },
+      {
+        received: (data) => {
+          if (data.current_user_id !== <%= current_user.id %>) {
+            let messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            mess = document.querySelectorAll('.message');
+            lastMessage = mess[mess.length - 1];
+            if (lastMessage !== undefined) {
+              lastMessage.scrollIntoView();
+            }
+          }
+        }
+      }
+    )
+  </script>
+<% end %>
