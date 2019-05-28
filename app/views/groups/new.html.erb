@@ -1,8 +1,10 @@
+<div class="header3">
+  <h3><%= link_to "<", groups_path %> Create a new group</h3>
+</div>
 <div class="form container">
   <%= simple_form_for(@group) do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: "Group name" %>
     <%= f.input :photo %>
     <%= f.submit "Create group", class: "btn btn-primary", style: "width: 150px" %>
-    <%= link_to "Back", groups_path, class: "btn btn-info" %>
   <% end %>
 </div>

@@ -1,4 +1,9 @@
 <% @list_items.each do |item| %>
-<%= item.title %>
-<%= item.description %>
+<p>
+  <% if item.user == current_user %>
+  <%= link_to "#{item.title}: #{item.description}", edit_group_list_list_item_path(@group, @list, item) %>
+  <% else %>
+  <%= item.title %>: <%= item.description %>
+  <% end %>
+</p>
 <% end %>
