@@ -12,4 +12,11 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :list_items
+
+  mount ActionCable.server => "/cable"
+
+  resources :conversations, only: [:show] do
+    resources :messages, only: [:create]
+  end
+
 end
