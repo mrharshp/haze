@@ -1,8 +1,9 @@
 <% @list_items.each do |item| %>
 <p>
-  <%= item.title %>
-  <%= item.description %>
-  <%= link_to "Edit Item", edit_group_list_list_item_path(@group, @list, item) %>
-  <%= link_to "Delete Item", group_list_list_item_path(@group, @list, item), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% if item.user == current_user %>
+  <%= link_to "#{item.title}: #{item.description}", edit_group_list_list_item_path(@group, @list, item) %>
+  <% else %>
+  <%= item.title %>: <%= item.description %>
+  <% end %>
 </p>
 <% end %>

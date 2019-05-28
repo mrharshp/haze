@@ -4,5 +4,9 @@
     <%= f.input :photo %>
     <%= f.submit "Edit list", class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "Back", group_lists_path(@group), class: "btn btn-info" %>
+  <% if @list.user == current_user %>
+    <%= link_to "Delete List", group_list_path(@group, @list), method: :delete, data: { confirm: "Are you sure?" },  class: "btn btn-info" %>
+  <% end %>
+  <br>
+  <%= link_to "Back", group_lists_path(@group) %>
 </div>

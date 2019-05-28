@@ -8,7 +8,6 @@
     placeholder: "Add a friend"
   %>
 <% end %>
-<%= link_to "Invite your friends!", new_group_group_membership_path(@group) %>
 <br>
 <% @users.each do |u| %>
     <%= u.name %>, <%= u.email %>

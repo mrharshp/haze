@@ -14,8 +14,7 @@ class ListItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    # record.user == user
-    true
+    record.user == user
   end
 
   def update?
