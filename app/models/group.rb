@@ -3,4 +3,5 @@ class Group < ApplicationRecord
   has_many :lists
   has_one :conversation
   has_many :users, through: :group_memberships
+  mount_uploader :photo, PhotoUploader
 end

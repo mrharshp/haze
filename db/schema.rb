@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_05_28_134406) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +50,9 @@ ActiveRecord::Schema.define(version: 2019_05_28_134406) do
     t.bigint "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["list_id"], name: "index_list_items_on_list_id"
+    t.index ["user_id"], name: "index_list_items_on_user_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -58,7 +61,9 @@ ActiveRecord::Schema.define(version: 2019_05_28_134406) do
     t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["group_id"], name: "index_lists_on_group_id"
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -89,7 +94,9 @@ ActiveRecord::Schema.define(version: 2019_05_28_134406) do
   add_foreign_key "group_memberships", "groups"
   add_foreign_key "group_memberships", "users"
   add_foreign_key "list_items", "lists"
+  add_foreign_key "list_items", "users"
   add_foreign_key "lists", "groups"
+  add_foreign_key "lists", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
 end

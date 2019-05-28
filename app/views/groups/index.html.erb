@@ -1,7 +1,24 @@
+<div class="header3">
+  <h3>Travel Groups</h3>
+</div>
 <% @groups.each do |group| %>
-<%= link_to group.name, group_path(group) %>
+  <%= link_to group_path(group) do %>
+     <% if group.photo.url.nil? %>
+      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/988872/pexels-photo-988872.jpeg?cs=srgb&dl=attractive-backdrop-background-988872.jpg&fm=jpg')">
+        <h2><%= group.name %></h2>
+      </div>
+    <% else %>
+      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo %>')">
+        <h2><%= group.name %></h2>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
 <br>
+<%= link_to new_group_path, class: "button-plus-lg" do %>
+<i class="fas fa-plus"></i>
+<% end %>
 <%= link_to "Create a new group", new_group_path %>
-<br>
-<%= link_to 'My Profile', user_path(current_user) %>
+<div class="footer">
+  <%= link_to "My Profile", user_path(current_user), class: "link-white" %>
+</div>

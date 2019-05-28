@@ -1,5 +1,6 @@
 class ListItemsController < ApplicationController
-  before_action :find_list_item, only: [:show, :edit, :update, :destroy]
+  before_action :find_list_item, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :footer, only: [:edit, :new]
 
   def index
     @list_items = policy_scope(ListItem)
@@ -9,12 +10,19 @@ class ListItemsController < ApplicationController
   end
 
   def new
-    @list_item = List_item.new
+    @group = Group.find(params[:group_id])
+    @list = List.find(params[:list_id])
+    @list_item = ListItem.new
+    @list_item.user = current_user
     authorize @list_item
   end
 
   def create
-    @list_item = List_item.new(list_item_params)
+    @group = Group.find(params[:group_id])
+    @list = List.find(params[:list_id])
+    @list_item = ListItem.new(list_item_params)
+    @list_item.list = @list
+    @list_item.user = current_user
     authorize @list_item
     if @list_item.save
       redirect_to group_list_path(@group, @list)
@@ -24,19 +32,35 @@ class ListItemsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:group_id])
+    @list = List.find(params[:list_id])
     authorize @list_item
   end
 
   def update
+    @group = Group.find(params[:group_id])
+    @list = List.find(params[:list_id])
     @list_item.update(list_item_params)
     authorize @list_item
     redirect_to group_list_path(@group, @list)
   end
 
   def destroy
+    @group = Group.find(params[:group_id])
+    @list = List.find(params[:list_id])
     @list_item.destroy
     authorize @list_item
     redirect_to group_list_path(@group, @list)
+  end
+
+  def upvote
+    @list_item.upvote += 1
+    @list_item.save
+  end
+
+  def downvote
+    @list_item.downvote += 1
+    @list_item.save
   end
 
   private
@@ -46,7 +70,11 @@ class ListItemsController < ApplicationController
   end
 
   def find_list_item
-    @list_item = List_item.find(params[:list_item_id])
+    @list_item = ListItem.find(params[:id])
     authorize @list_item
+  end
+
+  def footer
+    @footer = true
   end
 end
