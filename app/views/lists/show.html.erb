@@ -1,12 +1,10 @@
-<div class="container">
-  <div class="header3">
-    <% if @list.name.length < 9 %>
-      <h3> < <%= @list.name %> Options</h3>
-    <% else %>
-      <h3> < <%= @list.name %> Opt...</h3>
-    <% end %>
-  </div>
+<div class="header3">
+  <% if @list.name.length < 9 %>
+    <h3> <%= link_to "<", group_lists_path(@group) %>   <%= @list.name %> Options</h3>
+  <% else %>
+    <h3> <%= link_to "<", group_lists_path(@group) %>   <%= @list.name %> Opt...</h3>
+  <% end %>
 </div>
-    
+
 <%= render 'list_items/index' %>
 

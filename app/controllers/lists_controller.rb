@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   before_action :find_group
   before_action :find_list, only: [:edit, :update, :destroy]
+  before_action :footer, only: [:index, :show, :new, :edit]
 
   def index
     @lists = policy_scope(List).where(group: @group)
@@ -56,5 +57,9 @@ class ListsController < ApplicationController
 
   def list_params
     params.require(:list).permit(:name, :photo, :group_id)
+  end
+
+  def footer
+    @footer = true
   end
 end
