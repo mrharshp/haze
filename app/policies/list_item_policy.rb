@@ -24,4 +24,12 @@ class ListItemPolicy < ApplicationPolicy
   def destroy?
     edit?
   end
+
+  def upvote?
+    true
+  end
+
+  def downvote?
+    true
+  end
 end
