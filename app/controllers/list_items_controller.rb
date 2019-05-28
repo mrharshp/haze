@@ -1,5 +1,6 @@
 class ListItemsController < ApplicationController
   before_action :find_list_item, only: [:show, :edit, :update, :destroy]
+  before_action :footer, only: [:edit, :new]
 
   def index
     @list_items = policy_scope(ListItem)
@@ -61,5 +62,9 @@ class ListItemsController < ApplicationController
   def find_list_item
     @list_item = ListItem.find(params[:id])
     authorize @list_item
+  end
+
+  def footer
+    @footer = true
   end
 end

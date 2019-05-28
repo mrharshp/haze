@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update]
+  before_action :footer
 
   def index
     @groups = policy_scope(Group)
@@ -53,5 +54,9 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:name, :photo)
+  end
+
+  def footer
+    @footer = true
   end
 end
