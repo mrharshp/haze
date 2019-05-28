@@ -11,17 +11,20 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    authorize @user
   end
 
   def update
     @user = current_user
+    authorize @user
+    raise
     @user.update(user_params)
-    # redirect_to my_profile_path(@user)
+    redirect_to my_profile_path(@user)
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :photo)
   end
 end
