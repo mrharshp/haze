@@ -1,9 +1,9 @@
 <div class="container">
-  <%= simple_form_for [@list_item] do |f| %>
+  <%= simple_form_for [@group, @list, @list_item] do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :photo %>
     <%= f.submit "Edit item", class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "Back", list_item_path(@list_item), class: "btn btn-info" %>
+  <%= link_to "Back", group_list_path(@group, @list), class: "btn btn-info" %>
 </div>
