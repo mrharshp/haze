@@ -1,24 +1,48 @@
 <h2><%= link_to @group.name, edit_group_path(@group) %></h2>
 <br>
-<h5>Invite your friends!</h5>
-<%= form_tag group_path(@group), method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Add a friend"
-  %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="chat-header"><h4><%= @group.name %></h4></div>
+      <div class="messages">
+        <% @group.conversation.messages.each do |m| %>
+          <%= render "messages/message", message: m, group: @group, user_is_messages_author: m.user == current_user %>
+        <% end %>
+      </div>
+      <div id="create-message">
+        <%= simple_form_for [ @group.conversation, Message.new ], remote: true do |f| %>
+        <%= f.input :content, as: :string, label: false %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+    mess = document.querySelectorAll('.message');
+    lastMessage = mess[mess.length - 1];
+    if (lastMessage !== undefined) {
+      lastMessage.scrollIntoView();
+    }
+    App['conversation_<%= @group.conversation.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ConversationsChannel', conversation_id: <%= @group.conversation.id %> },
+      {
+        received: (data) => {
+          if (data.current_user_id !== <%= current_user.id %>) {
+            let messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            mess = document.querySelectorAll('.message');
+            lastMessage = mess[mess.length - 1];
+            if (lastMessage !== undefined) {
+              lastMessage.scrollIntoView();
+            }
+          }
+        }
+      }
+    )
+  </script>
 <% end %>
-<%= link_to "Invite your friends!", new_group_group_membership_path(@group) %>
 <br>
-<% @users.each do |u| %>
-    <%= u.name %>, <%= u.email %>
-    <%= link_to "Add to group", group_group_memberships_path(@group, user: u), method: :post %>
-<% end %>
-<br>
-<br>
-<h5>MEMBERS</h5>
-<% @group.group_memberships.each do |member| %>
-  <%= member.user.name %>, <%= member.user.email %>
-  <br>
-<% end %>
-<%= link_to "Go to list", group_lists_path(@group) %>
+
+<%= link_to "Go to lists", group_lists_path(@group) %>

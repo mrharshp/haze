@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update]
 
@@ -27,8 +29,10 @@ class GroupsController < ApplicationController
     @group_membership = GroupMembership.new
     @group_membership.group = @group
     @group_membership.user = current_user
+    @group_membership.color = "##{SecureRandom.hex(3)}"
     @group_membership.save
     if @group.save
+      Conversation.create(group: @group)
       redirect_to group_path(@group)
     else
       render :new
@@ -36,6 +40,12 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR email ILIKE :query"
+      @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @users = []
+    end
   end
 
   def update
