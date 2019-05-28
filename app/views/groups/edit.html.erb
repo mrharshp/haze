@@ -1,8 +1,33 @@
 <div class="form container">
-  <%= simple_form_for(@group) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo %>
-    <%= f.submit "Edit group", class: "btn btn-primary", style: "width: 150px" %>
-    <%= link_to "Back", groups_path, class: "btn btn-info" %>
+  <div class="border-bottom pb-3">
+    <br>
+    <h5>Edit Group Profile!</h5>
+    <%= simple_form_for(@group) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo %>
+      <%= f.submit "Edit group", class: "btn btn-primary", style: "width: 150px" %>
+    <% end %>
+  </div>
+  <br>
+  <h5>Invite your friends!</h5>
+  <%= form_tag edit_group_path(@group), method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Add a friend"
+    %>
   <% end %>
+  <br>
+  <% @users.each do |u| %>
+      <%= u.name %>, <%= u.email %>
+      <%= link_to "Add to group", group_group_memberships_path(@group, user: u), method: :post %>
+  <% end %>
+  <br>
+  <br>
+  <h5>MEMBERS</h5>
+  <% @group.group_memberships.each do |member| %>
+    <%= member.user.name %>, <%= member.user.email %>
+    <br>
+  <% end %>
+  <%= link_to "Back", groups_path, class: "btn btn-info" %>
 </div>
