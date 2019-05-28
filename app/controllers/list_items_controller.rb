@@ -12,6 +12,7 @@ class ListItemsController < ApplicationController
     @group = Group.find(params[:group_id])
     @list = List.find(params[:list_id])
     @list_item = ListItem.new
+    @list_item.user = current_user
     authorize @list_item
   end
 
@@ -20,6 +21,7 @@ class ListItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @list_item = ListItem.new(list_item_params)
     @list_item.list = @list
+    @list_item.user = current_user
     authorize @list_item
     if @list_item.save
       redirect_to group_list_path(@group, @list)
