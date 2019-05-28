@@ -1,9 +1,14 @@
 <div class="header3">
-  <h3><%= link_to "<", groups_path(@group) %>
-      <%= link_to @group.name, edit_group_path(@group) %>
+  <h3>
+    <%= link_to "<", groups_path(@group) %>
+    <%= link_to @group.name, edit_group_path(@group) %>
   </h3>
 </div>
+<%= link_to edit_group_path(@group), class: "button-plus-sm" do %>
+  <i class="fas fa-plus"></i>
+<% end %>
+<p class="label-for-plus-btn">invite</p>
 <div class="d-flex m-2">
-  <button class="btn btn-primary w-50">Expenses</button>
-  <%= link_to "Lists", group_lists_path(@group), class: "btn btn-primary w-50" %>
+  <button class="btn btn-primary w-50 mr-2" style="color: white;">Expenses</button>
+  <%= link_to "Lists", group_lists_path(@group), class: "btn btn-primary w-50", style: "color: white;" %>
 </div>

@@ -6,4 +6,5 @@ class User < ApplicationRecord
   # validates :name, presence: true
   has_many :group_memberships
   has_many :groups, through: :group_memberships
+  mount_uploader :photo, PhotoUploader
 end

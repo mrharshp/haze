@@ -2,7 +2,7 @@
   position: absolute;
   width: 89px;
   height: 89px;
-  left: 249px;
+  right: 20px;
   top: 9px;
   color: $white;
   background-color: $yellow;
@@ -20,9 +20,9 @@
 
 .button-plus-sm {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  left: 331px;
+  width: 60px;
+  height: 60px;
+  right: 20px;
   top: 24px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: $white;
@@ -37,3 +37,10 @@
   }
 }
 
+.label-for-plus-btn {
+  position: absolute;
+  right: 30px;
+  top: 90px;
+  color: $yellow;
+  font-weight: bold;
+}
