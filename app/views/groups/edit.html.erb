@@ -1,3 +1,6 @@
+<div class="header3">
+  <h3><%= link_to "<", groups_path %> Edit a group</h3>
+</div>
 <div class="form container">
   <div class="border-bottom pb-3">
     <br>
@@ -29,5 +32,4 @@
     <%= member.user.name %>, <%= member.user.email %>
     <br>
   <% end %>
-  <%= link_to "Back", groups_path, class: "btn btn-info" %>
 </div>

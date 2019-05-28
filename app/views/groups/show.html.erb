@@ -1,3 +1,26 @@
-<h2><%= link_to @group.name, edit_group_path(@group) %></h2>
+<div class="header3">
+  <h3><%= link_to "<", groups_path(@group) %>
+      <%= link_to @group.name, edit_group_path(@group) %>
+  </h3>
+</div>
+<%= link_to "Lists", group_lists_path(@group), class: "btn btn-primary w-100" %>
+<h5>Invite your friends!</h5>
+<%= form_tag group_path(@group), method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Add a friend"
+  %>
+<% end %>
 <br>
-<%= link_to "Go to list", group_lists_path(@group) %>
+<% @users.each do |u| %>
+    <%= u.name %>, <%= u.email %>
+    <%= link_to "Add to group", group_group_memberships_path(@group, user: u), method: :post %>
+<% end %>
+<br>
+<br>
+<h5>MEMBERS</h5>
+<% @group.group_memberships.each do |member| %>
+  <%= member.user.name %>, <%= member.user.email %>
+  <br>
+<% end %>
