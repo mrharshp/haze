@@ -1,3 +1,7 @@
+<div class="header3">
+  <h3><%= link_to "<", group_lists_path(@group) %></h3>
+  <h3 class="uppercase">Edit a list</h3>
+</div>
 <div class="container">
   <%= simple_form_for [@group, @list] do |f| %>
     <%= f.input :name %>
@@ -8,5 +12,4 @@
     <%= link_to "Delete List", group_list_path(@group, @list), method: :delete, data: { confirm: "Are you sure?" },  class: "btn btn-info" %>
   <% end %>
   <br>
-  <%= link_to "Back", group_lists_path(@group) %>
 </div>

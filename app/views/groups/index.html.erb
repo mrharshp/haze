@@ -1,15 +1,15 @@
 <div class="header3">
-  <h3>Travel Groups</h3>
+  <h3 class="uppercase">Travel Groups</h3>
 </div>
 <% @groups.each do |group| %>
   <%= link_to group_path(group) do %>
-     <% if group.photo.url.nil? %>
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/988872/pexels-photo-988872.jpeg?cs=srgb&dl=attractive-backdrop-background-988872.jpg&fm=jpg')">
-        <h2><%= group.name %></h2>
+    <% if group.photo.url.nil? %>
+      <div class="card-banner">
+        <h4><%= group.name %></h4>
       </div>
     <% else %>
       <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo %>')">
-        <h2><%= group.name %></h2>
+        <h4><%= group.name %></h4>
       </div>
     <% end %>
   <% end %>
