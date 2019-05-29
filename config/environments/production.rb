@@ -90,8 +90,9 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_cable.url = "wss://www.yourdomain.top/cable"
-  config.action_cable.allowed_request_origins = [ "http://www.yourdomain.top", "https://www.yourdomain.top" ]
+  #Action Cable configurations to deploy correctly to heroku in production mode
+  config.action_cable.url = "wss://hazeglobal.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = [ "http://hazeglobal.herokuapp.com/", "https://hazeglobal.herokuapp.com/" ]
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
