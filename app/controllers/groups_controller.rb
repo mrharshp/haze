@@ -20,10 +20,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     authorize @group
-    @group_membership = GroupMembership.new
-    @group_membership.group = @group
-    @group_membership.user = current_user
-    @group_membership.color = "##{SecureRandom.hex(3)}"
+    @group_membership = GroupMembership.new(color: "##{SecureRandom.hex(3)}", user: current_user, group: @group)
     @group_membership.save
     if @group.save
       Conversation.create(group: @group)

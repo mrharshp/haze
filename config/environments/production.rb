@@ -90,6 +90,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  #Action Cable configurations to deploy correctly to heroku in production mode
   config.action_cable.url = "wss://hazeglobal.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = [ "http://hazeglobal.herokuapp.com/", "https://hazeglobal.herokuapp.com/" ]
 
