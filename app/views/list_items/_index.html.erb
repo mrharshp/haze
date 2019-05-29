@@ -1,20 +1,26 @@
 <% @list_items.each do |item| %>
-<div class="card-product d-flex">
-    <div>
-      <% if !item.photo.nil? %>
+<div class="card-product d-flex flex-wrap align-items-center">
+    <% if item.photo.url.nil? %>
+      <div style="display: none;"></div>
+    <% else %>
+      <div>
         <%= cl_image_tag item.photo, crop: :fill %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     <div class="card-product-infos flex-grow-1">
         <% if item.user == current_user %>
-        <h2><%= link_to item.title, edit_group_list_list_item_path(@group, @list, item) %></h2>
-        <p><%= item.description %></p>
+          <div>
+            <h2><%= link_to item.title, edit_group_list_list_item_path(@group, @list, item) %></h2>
+            <p><%= item.description %></p>
+          </div>
         <% else %>
-        <h2><%= item.title %></h2>
-        <p><%= item.description %></p>
+          <div>
+            <h2><%= item.title %></h2>
+            <p><%= item.description %></p>
+          </div>
         <% end %>
     </div>
-    <div class="icons">
+    <div class="icons" >
       <div>
         <span id="upvote-<%= item.id %>"><%= item.upvote %></span>
         <%= link_to  upvote_list_item_path(item), remote: true, method: :post do %>
