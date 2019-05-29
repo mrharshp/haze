@@ -1,16 +1,13 @@
 .button-plus-lg {
-  position: absolute;
-  width: 89px;
-  height: 89px;
-  right: 20px;
-  top: 9px;
+  width: 60px;
+  height: 60px;
   color: $white;
   background-color: $yellow;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 80px;
+  font-size: 50px;
   text-decoration: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &:hover{
@@ -19,11 +16,8 @@
 }
 
 .button-plus-sm {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  right: 20px;
-  top: 24px;
+  width: 40px;
+  height: 40px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: $white;
   background-color: $yellow;
@@ -32,15 +26,14 @@
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  position: relative;
+  margin-right: 5vw;
   &:hover{
     text-decoration: none;
   }
 }
 
 .label-for-plus-btn {
-  position: absolute;
-  right: 30px;
-  top: 90px;
   color: $yellow;
   font-weight: bold;
 }
