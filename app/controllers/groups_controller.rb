@@ -2,7 +2,7 @@ require 'securerandom'
 
 class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update]
-  before_action :footer, only: [:show, :new, :edit]
+  before_action :footer, only: [:new, :edit]
 
   def index
     @groups = policy_scope(Group)
@@ -20,7 +20,10 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     authorize @group
-    @group_membership = GroupMembership.new(color: "##{SecureRandom.hex(3)}", user: current_user, group: @group)
+    @group_membership = GroupMembership.new
+    @group_membership.group = @group
+    @group_membership.color = "##{SecureRandom.hex(3)}"
+    @group_membership.user = current_user
     @group_membership.save
     if @group.save
       Conversation.create(group: @group)
