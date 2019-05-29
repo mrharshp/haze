@@ -7,7 +7,7 @@
   border-top: none;
   border-bottom-width: 0;
   // max-height: calc(100vh - 275px);
-  height: 66vh;
+  height: 65.85vh;
   overflow: scroll;
 }
 
@@ -36,7 +36,7 @@
 #create-message {
   // padding: 10px;
   background-color: #ffffff;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   border: 1px solid #ececec;
 }
 .message_content {
@@ -49,8 +49,8 @@ input.form-control {
   color: #868686;
   &:focus {
     outline: none;
-    border: 1px solid blue;
-    box-shadow: none;
+    // border: 1px $yellow;
+    box-shadow: 5px;
   }
 }
 .chat-header {
