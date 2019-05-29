@@ -90,8 +90,8 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_cable.url = "wss://www.yourdomain.top/cable"
-  config.action_cable.allowed_request_origins = [ "http://www.yourdomain.top", "https://www.yourdomain.top" ]
+  config.action_cable.url = "wss://www.haze.global/cable"
+  config.action_cable.allowed_request_origins = [ "http://www.haze.global", "https://www.haze.global" ]
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
