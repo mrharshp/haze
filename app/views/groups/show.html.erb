@@ -1,5 +1,5 @@
 <div class="header3">
-  <h3><%= link_to "<", groups_path(@group) %></h3>
+  <h3><%= link_to "<", groups_path(@group), class: "rounded-circle px-2 bg-primary"%></h3>
   <h3 class="uppercase"><%= link_to @group.name, edit_group_path(@group) %></h3>
 </div>
 <%= link_to edit_group_path(@group), class: "button-plus-sm" do %>
