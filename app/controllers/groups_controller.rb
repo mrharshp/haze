@@ -45,6 +45,7 @@ class GroupsController < ApplicationController
   def update
     authorize @group
     @group.update(group_params)
+    redirect_to group_path(@group)
   end
 
   private
