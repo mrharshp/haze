@@ -2,7 +2,7 @@ require 'securerandom'
 
 class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update]
-  before_action :footer, only: [:show, :new, :edit]
+  before_action :footer, only: [:new, :edit]
 
   def index
     @groups = policy_scope(Group)
