@@ -1,11 +1,12 @@
 <div class="header3">
-  <h3><%= link_to "<", groups_path, class: "rounded-circle px-2 bg-primary" %></h3>
+  <h2><%= link_to "<", groups_path, class: "rounded-circle ml-3 px-2 bg-primary" %></h2>
   <h3 class="uppercase">Create a new group</h3>
 </div>
+<br>
 <div class="form container">
   <%= simple_form_for(@group) do |f| %>
     <%= f.input :name, placeholder: "Group name" %>
-    <%= f.input :photo %>
+    <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
     <%= f.submit "Create group", class: "button" %>
   <% end %>
 </div>
