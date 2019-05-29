@@ -26,12 +26,12 @@
       <%= f.input :photo %>
     </div>
 
-    <div class="form-actions btn btn-primary" style='width: 100%'>
-      <%= f.button :submit, "Sign up" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "button w-100" %>
     </div>
   <% end %>
   <br>
-  <div class='btn btn-success' style='width: 100%'>
+  <div class='btn button w-100' id="button-color-light-blue">
     <%= render "devise/shared/links" %>
   </div>
 </div>
