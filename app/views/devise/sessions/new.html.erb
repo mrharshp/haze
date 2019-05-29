@@ -17,12 +17,12 @@
       <%= f.input :remember_me, input_html: { id: "remember_me" }, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions button" style='width: 100%'>
-      <%= f.button :submit, "Log in" %>
+    <div class="form-actions" >
+      <%= f.button :submit, "Log in", class: "button w-100" %>
     </div>
   <% end %>
   <br>
-  <div class="btn btn-success" style='width: 100%; border-radius: 20px;'>
+  <div class="btn btn-success w-100">
     <%= render "devise/shared/links" %>
   </div>
 </div>

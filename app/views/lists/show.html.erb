@@ -1,8 +1,15 @@
 <div class="header3">
   <h3><%= link_to "<", group_lists_path(@group), class: "rounded-circle px-2 bg-primary" %></h3>
-  <h3 class="uppercase"><%= link_to "Options #{@list.name}", edit_group_list_path(@group, @list) %></h3>
+  <h3 class="uppercase"><%= link_to "#{@list.name}", edit_group_list_path(@group, @list) %></h3>
 </div>
 
 <%= render 'list_items/index' %>
-<%= link_to "Add list item", new_group_list_list_item_path(@group, @list) %>
+<br>
+<br>
+<div class="d-flex align-items-center flex-column">
+  <%= link_to new_group_list_list_item_path(@group, @list), class: "button-plus-lg" do %>
+    <i class="fas fa-plus"></i>
+  <% end %>
+  <p class="label-for-plus-btn">Add a new item</p>
+</div>
 

@@ -24,13 +24,13 @@
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
     </div>
-
-    <div class="form-actions button" style='width: 100%'>
-      <%= f.button :submit, "Sign up" %>
+  
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "button w-100" %>
     </div>
   <% end %>
   <br>
-  <div class="btn btn-success" style='width: 100%; border-radius: 20px;'>
+  <div class='button w-100' id="button-color-light-blue">
     <%= render "devise/shared/links" %>
   </div>
   <br>

@@ -1,11 +1,14 @@
+<div class="header3">
+  <h3><%= link_to "<", group_list_path(@group, @list) %></h3>
+  <h3 class="uppercase">Edit an item</h3>
+</div>
 <div class="container">
   <%= simple_form_for [@group, @list, @list_item] do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :photo %>
-    <%= f.submit "Edit item", class: "btn btn-primary" %>
+    <%= f.submit "Edit item", class: "button" %>
   <% end %>
-  <%= link_to "Delete Item", group_list_list_item_path(@group, @list, @list_item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-info" %>
+  <%= link_to "Delete Item", group_list_list_item_path(@group, @list, @list_item), method: :delete, data: { confirm: "Are you sure?" }, class: "button mt-2", id: "button-color-light-blue" %>
   <br>
-  <%= link_to "Back", group_list_path(@group, @list) %>
 </div>
