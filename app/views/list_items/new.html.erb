@@ -1,9 +1,13 @@
+<div class="header3">
+  <h2><%= link_to "<", group_list_path(@group, @list), class: "rounded-circle ml-3 px-2 bg-primary"  %></h2>
+  <h3 class="uppercase">Add a new item</h3>
+</div>
+<br>
 <div class="container">
   <%= simple_form_for [@group, @list, @list_item] do |f| %>
     <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :photo %>
-    <%= f.submit "Create a new item", class: "btn btn-primary" %>
+    <%= f.input :description, input_html: { style: 'border-color: #ECECEC' } %>
+    <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
+    <%= f.submit "Create a new item", class: "button" %>
   <% end %>
-  <%= link_to "Back", group_list_path(@group, @list), class: "btn btn-info" %>
 </div>

@@ -1,15 +1,16 @@
 <div class="header3">
-  <h3><%= link_to "<", group_lists_path(@group) %></h3>
-  <h3 class="uppercase"><%= link_to "Options #{@list.name}", edit_group_list_path(@group, @list) %></h3>
+  <h2><%= link_to "<", group_lists_path(@group), class: "rounded-circle ml-3 px-2 bg-primary" %></h2>
+  <h3 class="uppercase"><%= link_to "#{@list.name}", edit_group_list_path(@group, @list) %></h3>
 </div>
 
 <%= render 'list_items/index' %>
-
+<br>
+<br>
 <div class="d-flex align-items-center flex-column">
-<button type="button" class="button-plus-lg" data-toggle="modal" data-target="#exampleModal">
-  <i class="fas fa-plus"></i>
-</button>
-<p class="label-for-plus-btn">Add a new item</p>
+  <button type="button" class="button-plus-lg" data-toggle="modal" data-target="#exampleModal">
+    <i class="fas fa-plus"></i>
+  </button>
+  <p class="label-for-plus-btn">Add a new item</p>
 </div>
 
 <!-- Modal -->
@@ -17,7 +18,7 @@
    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">&times;</span>
         </button>
         <%= simple_form_for [@group, @list, @list_item] do |f| %>
           <%= f.input :title, input_html: { class: "modal-title" } %>

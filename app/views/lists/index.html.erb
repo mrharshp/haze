@@ -1,11 +1,11 @@
 <div class="header3">
-  <h3><%= link_to "<", groups_path %></h3>
+  <h2><%= link_to "<", groups_path, class: "rounded-circle ml-3 px-2 bg-primary" %></h2>
   <h3 class="uppercase">Lists <%= @group.name %></h3>
 </div>
 <% @lists.each do |list| %>
   <%= link_to group_list_path(@group, list) do %>
     <% if list.photo.url.nil? %>
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/988872/pexels-photo-988872.jpeg?cs=srgb&dl=attractive-backdrop-background-988872.jpg&fm=jpg')">
+      <div class="card-banner">
         <h4><%= list.name %></h4>
       </div>
     <% else %>
@@ -17,4 +17,9 @@
 <% end %>
 <br>
 <br>
-<%= link_to "Add a new list", new_group_list_path(@group), class: "btn btn-warning" %>
+<div class="d-flex align-items-center flex-column">
+  <%= link_to new_group_list_path(@group), class: "button-plus-lg" do %>
+    <i class="fas fa-plus"></i>
+  <% end %>
+  <p class="label-for-plus-btn">Add a new list</p>
+</div>

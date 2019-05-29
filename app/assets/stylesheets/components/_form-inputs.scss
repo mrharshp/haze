@@ -1,0 +1,11 @@
+.form-control {
+  border-radius: 20px;
+}
+
+.form-check-input.is-valid ~ .form-check-label {
+  color: $black;
+}
+
+.btn {
+  color: white;
+}

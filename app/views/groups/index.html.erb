@@ -1,5 +1,10 @@
 <div class="header3">
   <h3 class="uppercase">Travel Groups</h3>
+  <div class="mb-3">
+    <%= link_to new_group_path, class: "button-plus-sm" do %>
+    <i class="fas fa-plus"></i>
+    <% end %>
+  </div>
 </div>
 <% @groups.each do |group| %>
   <%= link_to group_path(group) do %>
@@ -15,10 +20,6 @@
   <% end %>
 <% end %>
 <br>
-<%= link_to new_group_path, class: "button-plus-sm" do %>
-<i class="fas fa-plus"></i>
-<% end %>
-<%= link_to "Create a new group", new_group_path %>
 <div class="footer">
   <%= link_to "My Profile", user_path(current_user), class: "link-white" %>
 </div>

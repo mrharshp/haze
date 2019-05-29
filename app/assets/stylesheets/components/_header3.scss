@@ -3,19 +3,27 @@
   height: 112px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  background-image: asset-url('banner_yellow.png');
+  // justify-content: space-between;
+  background-image: asset-url('banner_light_gray.png');
   background-size: cover;
   background-position: center;
-  color: $gray;
+  color: $blue;
   margin-bottom: 5px;
   h3 {
+    font-size: 26px;
     margin-left: 5vw;
+    margin-right: 5vw;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    flex-grow: 1;
+    // white-space: nowrap;
     a {
-      color: $gray !important;
+      color: $blue !important;
+    }
+  }
+  h2 {
+    a{
+      color: white;
     }
   }
 }

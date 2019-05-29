@@ -1,11 +1,12 @@
 <div class="header3">
-   <h3><%= link_to "<", group_lists_path(@group) %></h3>
+   <h2><%= link_to "<", group_lists_path(@group), class: "rounded-circle ml-3 px-2 bg-primary" %></h2>
    <h3 class="uppercase">Create a new list</h3>
 </div>
+<br>
 <div class="container">
   <%= simple_form_for [@group, @list] do |f| %>
     <%= f.input :name %>
-    <%= f.input :photo %>
-    <%= f.submit "Create a new List", class: "btn btn-primary" %>
+    <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
+    <%= f.submit "Create a new List", class: "button" %>
   <% end %>
 </div>

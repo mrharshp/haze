@@ -4,11 +4,12 @@
   align-items: center;
   justify-content: center;
   background-color: $blue;
-  color: $white;
+  color: white;
   border-radius: 20px;
   width: 290px;
   height: 36px;
   margin: auto;
+  border-color: $blue;
 }
 
 .button-sm {
@@ -21,4 +22,9 @@
   border-radius: 20px;
   width: 145px;
   height: 36px;
+  border-color: $blue;
+}
+
+#button-color-light-blue {
+  background-color: $light-blue !important;
 }
