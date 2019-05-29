@@ -1,12 +1,13 @@
 <div class="header3">
-  <h3><%= link_to "<", group_list_path(@group, @list) %></h3>
+  <h2><%= link_to "<", group_list_path(@group, @list), class: "rounded-circle ml-3 px-2 bg-primary" %></h2>
   <h3 class="uppercase">Edit an item</h3>
 </div>
+<br>
 <div class="container">
   <%= simple_form_for [@group, @list, @list_item] do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :photo %>
+    <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
     <%= f.submit "Edit item", class: "button" %>
   <% end %>
   <%= link_to "Delete Item", group_list_list_item_path(@group, @list, @list_item), method: :delete, data: { confirm: "Are you sure?" }, class: "button mt-2", id: "button-color-light-blue" %>

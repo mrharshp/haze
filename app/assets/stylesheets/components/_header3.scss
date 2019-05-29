@@ -3,7 +3,7 @@
   height: 112px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  // justify-content: space-between;
   background-image: asset-url('banner_light_gray.png');
   background-size: cover;
   background-position: center;
@@ -15,9 +15,15 @@
     margin-right: 5vw;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-grow: 1;
     // white-space: nowrap;
     a {
       color: $blue !important;
+    }
+  }
+  h2 {
+    a{
+      color: white;
     }
   }
 }
