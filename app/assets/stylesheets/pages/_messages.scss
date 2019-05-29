@@ -2,11 +2,12 @@
   font-size: 14px;
   color: #868686;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 6px 12px;
   border: 1px solid #ececec;
   border-top: none;
   border-bottom-width: 0;
-  max-height: calc(100vh - 70px - 45px - 61px - 30px);
+  // max-height: calc(100vh - 275px);
+  height: 66vh;
   overflow: scroll;
 }
 
@@ -33,7 +34,7 @@
 }
 
 #create-message {
-  padding: 10px;
+  // padding: 10px;
   background-color: #ffffff;
   margin-bottom: 20px;
   border: 1px solid #ececec;
