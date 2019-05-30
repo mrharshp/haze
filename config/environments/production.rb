@@ -92,7 +92,7 @@ Rails.application.configure do
 
   #Action Cable configurations to deploy correctly to heroku in production mode
   config.action_cable.url = "wss://hazeglobal.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = [ "http://haze.global/", "https://haze.global/" ]
+  config.action_cable.allowed_request_origins = [ "http://haze.global/", "https://haze.global/", "https://www.haze.global", "http://www.haze.global" ]
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
