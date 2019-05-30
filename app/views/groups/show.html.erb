@@ -28,8 +28,8 @@
           <%= render "messages/message", message: m, group: @group, user_is_messages_author: m.user == current_user %>
         <% end %>
       </div>
-          <input type="text" ng-model="name" ng-focus="focus=true" ng-blur="focus=false">
-          <ion-label class="icon ion-ios-close" ng-click="resetTextfield()" ng-if="focus"></ion-label>
+<!--           <input type="text" ng-model="name" ng-focus="focus=true" ng-blur="focus=false">
+          <ion-label class="icon ion-ios-close" ng-click="resetTextfield()" ng-if="focus"></ion-label> -->
       <div id="create-message">
         <%= simple_form_for [ @group.conversation, Message.new ], remote: true do |f| %>
         <!-- <div class='d-flex'></div> -->
