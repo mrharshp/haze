@@ -12,6 +12,7 @@
           <div>
             <h2><%= link_to item.title, edit_group_list_list_item_path(@group, @list, item) %></h2>
             <p><%= item.description %></p>
+            <p>Added by <%= item.user.name %></p>
           </div>
         <% else %>
           <div>
