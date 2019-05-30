@@ -6,13 +6,13 @@
     <h3 class="uppercase"><%= link_to @group.name, edit_group_path(@group) %><i class="fas fa-pencil-alt"></i></h3>
     <p id="subtitle">GROUP CHAT</p>
   </div>
-  <div>
+  <div class="d-flex flex-column justify-content-center align-items-center">
     <div class="mt-4">
       <%= link_to edit_group_path(@group), class: "button-plus-sm" do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>
-  <p class="label-for-plus-btn">Invite</p>
+    <p class="label-for-plus-btn">Invite</p>
   </div>
 </div>
 <div class="d-flex m-2 justify-content-around">
