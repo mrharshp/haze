@@ -15,7 +15,6 @@
     <% if @list.user == current_user %>
       <%= link_to "Delete List", group_list_path(@group, @list), method: :delete, data: { confirm: "Are you sure?" },  class: "button", id: "button-color-light-blue" %>
     <% end %>
-
   </div>
   <br>
 </div>
