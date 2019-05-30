@@ -4,6 +4,7 @@ class ListsController < ApplicationController
   before_action :footer, only: [:index, :show, :new, :edit]
 
   def index
+    @list = List.new
     @lists = policy_scope(List).where(group: @group)
   end
 
