@@ -32,7 +32,8 @@ font-size: 20px;
   width: 290px;
   height: 36px;
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: 180px;
+  border: none
 }
 
 .modal-button-plus-sm {
@@ -50,6 +51,14 @@ font-size: 20px;
   &:hover{
     text-decoration: none;
   }
+}
+
+.close {
+    color: $white;
+    opacity: 1;
+    font-size: 30px;
+    margin-left:340px;
+    margin-top:170px;
 }
 
 
