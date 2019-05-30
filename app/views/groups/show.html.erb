@@ -1,6 +1,11 @@
 <div class="header3">
-  <h2><%= link_to "<", groups_path(@group), class: "rounded-circle ml-3 px-2 bg-primary"%></h2>
-  <h3 class="uppercase"><%= link_to @group.name, edit_group_path(@group) %></h3>
+  <%= link_to groups_path(@group), class: "button-back mb-3" do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
+  <div id="titles">
+    <h3 class="uppercase"><%= link_to @group.name, edit_group_path(@group) %></h3>
+    <p id="subtitle">GROUP CHAT</p>
+  </div>
   <div>
     <div class="mt-4">
       <%= link_to edit_group_path(@group), class: "button-plus-sm" do %>
@@ -23,15 +28,18 @@
           <%= render "messages/message", message: m, group: @group, user_is_messages_author: m.user == current_user %>
         <% end %>
       </div>
+<!--           <input type="text" ng-model="name" ng-focus="focus=true" ng-blur="focus=false">
+          <ion-label class="icon ion-ios-close" ng-click="resetTextfield()" ng-if="focus"></ion-label> -->
       <div id="create-message">
         <%= simple_form_for [ @group.conversation, Message.new ], remote: true do |f| %>
-        <div class='d-flex'></div>
+        <!-- <div class='d-flex'></div> -->
         <%= f.input :content, as: :string, label: false, input_html: { style: 'flex-grow: 1;'} %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+        </ion-input>
 
 <% content_for :after_js do %>
   <script>

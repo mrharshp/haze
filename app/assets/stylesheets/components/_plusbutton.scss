@@ -8,8 +8,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
+  font-size: 35px;
+  border-color: $yellow;
   text-decoration: none;
+  margin: 5px auto;
   &:hover{
     text-decoration: none;
   }
@@ -19,14 +21,14 @@
   border: none;
   width: 40px;
   height: 40px;
+  border-color: $yellow;
   color: $white;
   background-color: $yellow;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
-  position: relative;
+  font-size: 25px;
   margin-right: 5vw;
   &:hover{
     text-decoration: none;

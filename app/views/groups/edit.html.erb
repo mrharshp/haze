@@ -1,19 +1,12 @@
 <div class="header3">
-  <h2><%= link_to "<", groups_path, class: "rounded-circle ml-3 px-2 bg-primary" %></h2>
+  <%= link_to groups_path, class: "button-back mb-3" do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
   <h3 class="uppercase">Edit a group</h3>
 </div>
 <div class="form container">
-  <div class="border-bottom pb-3">
-    <br>
-    <h5>Edit Group Profile!</h5>
-    <%= simple_form_for(@group) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
-      <%= f.submit "Edit group", class: "button" %>
-    <% end %>
-  </div>
   <br>
-  <h5>Invite your friends!</h5>
+  <h5 style="color: #54AFC3;">Invite your friends!</h5>
   <%= form_tag edit_group_path(@group), method: :get do %>
     <%= text_field_tag :query,
       params[:query],
@@ -24,13 +17,23 @@
   <br>
   <% @users.each do |u| %>
       <%= u.name %>, <%= u.email %>
-      <%= link_to "Add to group", group_group_memberships_path(@group, user: u), method: :post %>
+      <%= link_to "Add to group", group_group_memberships_path(@group, user: u), method: :post, class: "button-sm" %>
   <% end %>
   <br>
-  <br>
-  <h5>MEMBERS</h5>
+  <h5 style="color: #54AFC3;">Group Members</h5>
   <% @group.group_memberships.each do |member| %>
     <%= member.user.name %>, <%= member.user.email %>
     <br>
   <% end %>
+  <br>
+  <div class="border-top">
+    <br>
+    <h5 style="color: #54AFC3;">Edit Group Profile!</h5>
+    <%= simple_form_for(@group) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
+      <%= f.submit "Edit group", class: "button" %>
+    <% end %>
+    <br>
+  </div>
 </div>

@@ -1,5 +1,7 @@
 <div class="header3">
-  <h2><%= link_to "<", group_lists_path(@group), class: "rounded-circle ml-3 px-2 bg-primary" %></h2>
+  <%= link_to group_lists_path(@group), class: "button-back mb-3" do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
   <h3 class="uppercase">Edit a list</h3>
 </div>
 <br>
