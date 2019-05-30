@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   before_action :footer, only: [:new, :edit]
 
   def index
+    @group = Group.new
     @groups = policy_scope(Group)
     @user = current_user
   end

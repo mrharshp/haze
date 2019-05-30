@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   font-size: 50px;
+  border-color: $yellow;
   text-decoration: none;
   margin: 5px auto;
   &:hover{
@@ -20,6 +21,7 @@
   border: none;
   width: 40px;
   height: 40px;
+  border-color: $yellow;
   color: $white;
   background-color: $yellow;
   border-radius: 50%;
