@@ -1,5 +1,7 @@
 <div class="header3">
-  <h2><%= link_to "<", group_list_path(@group, @list), class: "rounded-circle ml-3 px-2 bg-primary"  %></h2>
+  <%= link_to group_list_path(@group, @list), class: "button-back mb-3" do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
   <h3 class="uppercase">Add a new item</h3>
 </div>
 <br>

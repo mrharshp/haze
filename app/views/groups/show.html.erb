@@ -1,5 +1,7 @@
 <div class="header3">
-  <h2><%= link_to "<", groups_path(@group), class: "rounded-circle ml-3 px-2 bg-primary"%></h2>
+  <%= link_to groups_path(@group), class: "button-back mb-3" do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
   <div id="titles">
     <h3 class="uppercase"><%= link_to @group.name, edit_group_path(@group) %></h3>
     <p id="subtitle">GROUP CHAT</p>
