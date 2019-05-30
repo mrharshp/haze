@@ -10,6 +10,7 @@
   align-items: center;
   font-size: 50px;
   text-decoration: none;
+  margin: 5px auto;
   &:hover{
     text-decoration: none;
   }
@@ -25,8 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
-  position: relative;
+  font-size: 25px;
   margin-right: 5vw;
   &:hover{
     text-decoration: none;

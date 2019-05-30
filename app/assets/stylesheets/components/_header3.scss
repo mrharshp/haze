@@ -11,19 +11,14 @@
   margin-bottom: 5px;
   h3 {
     font-size: 26px;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin: 0 5vw;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 1;
     // white-space: nowrap;
     a {
       color: $blue !important;
-    }
-  }
-  h2 {
-    a{
-      color: white;
+      margin: 0 5vw;
     }
   }
 }
