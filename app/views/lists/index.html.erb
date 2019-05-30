@@ -6,7 +6,16 @@
     <h3 class="uppercase"><%= @group.name %></h3>
     <p id="subtitle">LISTS</p>
   </div>
+  <div class="mt-4">
+    <div>
+      <button type="button" class="button-plus-sm" data-toggle="modal" data-target="#exampleModalCenter">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    <p class="label-for-plus-btn ml-1">add</p>
+  </div>
 </div>
+
 <% @lists.each do |list| %>
   <%= link_to group_list_path(@group, list) do %>
     <% if list.photo.url.nil? %>
@@ -22,12 +31,6 @@
 <% end %>
 <br>
 <br>
-<div class="d-flex align-items-center flex-column">
-  <button type="button" class="button-plus-lg" data-toggle="modal" data-target="#exampleModalCenter">
-    <i class="fas fa-plus"></i>
-  </button>
-  <p class="label-for-plus-btn">Add a new list</p>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
