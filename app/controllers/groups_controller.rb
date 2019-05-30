@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   before_action :footer, only: [:new, :edit]
 
   def index
+    @group = Group.new
     @groups = policy_scope(Group)
     @user = current_user
   end
@@ -45,6 +46,7 @@ class GroupsController < ApplicationController
   def update
     authorize @group
     @group.update(group_params)
+    redirect_to group_path(@group)
   end
 
   private
