@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   font-size: 50px;
+  border-color: $yellow;
   text-decoration: none;
   &:hover{
     text-decoration: none;
@@ -17,6 +18,7 @@
 .button-plus-sm {
   width: 40px;
   height: 40px;
+  border-color: $yellow;
   color: $white;
   background-color: $yellow;
   border-radius: 50%;
