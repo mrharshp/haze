@@ -15,7 +15,6 @@
     margin-right: 5vw;
     overflow: hidden;
     text-overflow: ellipsis;
-    flex-grow: 1;
     // white-space: nowrap;
     a {
       color: $blue !important;
@@ -25,6 +24,16 @@
     a{
       color: white;
     }
+  }
+  #titles {
+    flex-grow: 1;
+    margin-top: 5vw;
+  }
+  #subtitle {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 h3.uppercase {
