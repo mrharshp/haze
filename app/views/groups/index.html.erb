@@ -1,11 +1,17 @@
 <div class="header3">
-  <h3 class="uppercase">Travel Groups</h3>
-  <div class="mb-3">
-     <button type="button" class="button-plus-lg" data-toggle="modal" data-target="#exampleModal">
-    <i class="fas fa-plus"></i>
-  </button>
+  <div id="titles" class="mb-4">
+      <h3 class="uppercase">Travel Groups</h3>
+  </div>
+  <div class="mt-4">
+    <div class="mt-2">
+      <button type="button" class="button-plus-sm" data-toggle="modal" data-target="#exampleModal">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    <p class="label-for-plus-btn ml-1">add</p>
   </div>
 </div>
+
 <% @groups.each do |group| %>
   <%= link_to group_path(group) do %>
     <% if group.photo.url.nil? %>

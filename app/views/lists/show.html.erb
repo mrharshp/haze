@@ -6,17 +6,19 @@
     <h3 class="uppercase"><%= link_to "#{@list.name}", edit_group_list_path(@group, @list) %></h3>
     <p id="subtitle">LIST</p>
   </div>
+  <div class="mt-4">
+    <div>
+      <button type="button" class="button-plus-sm" data-toggle="modal" data-target="#exampleModal">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    <p class="label-for-plus-btn ml-1">add</p>
+  </div>
 </div>
 
 <%= render 'list_items/index' %>
 <br>
 <br>
-<div class="d-flex align-items-center flex-column">
-  <button type="button" class="button-plus-lg" data-toggle="modal" data-target="#exampleModal">
-    <i class="fas fa-plus"></i>
-  </button>
-  <p class="label-for-plus-btn">Add a new item</p>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
