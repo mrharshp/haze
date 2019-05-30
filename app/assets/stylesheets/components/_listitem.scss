@@ -31,8 +31,7 @@
   padding: 16px;
 }
 
-.icons {
-  padding-right: 10px;
-  position: absolute;
-  right: 7px;
+.card-product-infos {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
