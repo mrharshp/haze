@@ -7,7 +7,7 @@
  margin-bottom: 10px;
  border-bottom-width: 0;
  // max-height: calc(100vh - 275px);
- height: 61vh;
+ height: 55vh;
  overflow: scroll;
 }
 
@@ -41,10 +41,8 @@ input.form-control {
   border: 1px solid $blue;
   box-shadow: none;
   background-color: $light-gray;
-  font-size: 14px;
+  font-size: 16px;
   padding: 6px 12px;
-  margin-left: 12px;
-  margin-right: 12px;
   color: #868686;
   &:focus {
    outline: none;
