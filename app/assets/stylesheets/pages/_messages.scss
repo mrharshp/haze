@@ -5,8 +5,6 @@
  padding: 6px 12px;
  margin-top: 10px;
  margin-bottom: 10px;
- border: 1px solid #ececec;
- border-top: none;
  border-bottom-width: 0;
  // max-height: calc(100vh - 275px);
  height: 61vh;
@@ -36,19 +34,22 @@
 }
 
 .message_content {
- margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 input.form-control {
- border: 1px solid $blue;
- box-shadow: none;
- background-color: $light-gray;
- font-size: 14px;
- color: #868686;
- &:focus {
+  border: 1px solid $blue;
+  box-shadow: none;
+  background-color: $light-gray;
+  font-size: 14px;
+  padding: 6px 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+  color: #868686;
+  &:focus {
    outline: none;
    box-shadow: 5px;
- }
+}
 }
 .chat-header {
  background-color: #4F2F4C;
