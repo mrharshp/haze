@@ -1,0 +1,25 @@
+<% @expenses.each do |expense| %>
+<div>
+<p>
+  <%= expense.description %>
+  <%= expense.value %>
+  <%= expense.currency %>
+</p>
+</div>
+<% end %>
+
+<% @splits.each do |split| %>
+<div>
+<p>
+  <%= split.user.name %>
+  Expense_id : <%= split.expense.id %>
+  Paid? : <%= split.paid %>
+  CS? : <%= split.customsplit.round(2) %>
+  <% if split.paid == false %>
+    <%= split.user.name %> owes: <%= split.expense.value * split.customsplit %>
+  <% else %>
+    <%= split.user.name %> is owed: <%= (split.expense.value / params[:paid].to_i) - (split.expense.value * split.customsplit)  %>
+  <% end %>
+</p>
+</div>
+<% end %>
