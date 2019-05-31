@@ -1,0 +1,18 @@
+<% @expenses.each do |expense| %>
+<div>
+<p>
+  <%= expense.description %>
+  <%= expense.value %>
+  <%= expense.currency %>
+</p>
+</div>
+<% end %>
+
+<% @splits.each do |split| %>
+<div>
+<p>
+  <%= split.user.name %>
+  Expense_id : <%= split.expense.id %>
+</p>
+</div>
+<% end %>
