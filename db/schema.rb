@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 2019_05_31_094249) do
   add_foreign_key "lists", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
-  add_foreign_key "votes", "list_items"
-  add_foreign_key "votes", "users"
   add_foreign_key "splits", "expenses"
   add_foreign_key "splits", "users"
+  add_foreign_key "votes", "list_items"
+  add_foreign_key "votes", "users"
 end
