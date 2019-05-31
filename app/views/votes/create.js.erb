@@ -1,0 +1,18 @@
+<% if @has_voted == false %>
+
+  function upvote() {
+    upvote = document.getElementById("upvote-<%= @list_item.id %>")
+    upvote.innerHTML = "<%= @list_item.upvote %>"
+  }
+
+  function downvote() {
+    downvote = document.getElementById("downvote-<%= @list_item.id %>")
+    downvote.innerHTML = "<%= @list_item.downvote %>"
+  }
+
+  <% if @vote.upvote == true %>
+    upvote();
+  <% else %>
+    downvote();
+  <% end %>
+<% end %>

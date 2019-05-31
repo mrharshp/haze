@@ -13,6 +13,8 @@ class ListsController < ApplicationController
     @group = Group.find(params[:group_id])
     @list = List.find(params[:id])
     @list_items = ListItem.where(list: @list)
+    @list_items = @list_items.sort_by { |list_item| list_item.upvote }
+    @list_items.reverse!
     authorize @list
   end
 
