@@ -11,21 +11,21 @@
     <p class="label-for-plus-btn">Add</p>
   </div>
 </div>
-
-<% @groups.each do |group| %>
-  <%= link_to group_path(group) do %>
-    <% if group.photo.url.nil? %>
-      <div class="card-banner">
-        <h4><%= group.name %></h4>
-      </div>
-    <% else %>
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo %>')">
-        <h4><%= group.name %></h4>
-      </div>
+<div class="scroll">
+  <% @groups.each do |group| %>
+    <%= link_to group_path(group) do %>
+      <% if group.photo.url.nil? %>
+        <div class="card-banner">
+          <h4><%= group.name %></h4>
+        </div>
+      <% else %>
+        <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo %>')">
+          <h4><%= group.name %></h4>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
-<br>
+</div>
 <div class="footer">
   <%= link_to "My Profile", user_path(current_user), class: "link-white" %>
 </div>
