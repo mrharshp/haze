@@ -2,9 +2,10 @@
 <div class="card-product d-flex align-items-center">
     <% if item.photo.url.nil? %>
       <div style="display: none;"></div>
+      <a href="http://<%= item.url %>">Check this out!</a>
     <% else %>
       <div>
-        <%= cl_image_tag item.photo, crop: :fill %>
+        <a href="http://<%= item.url %>"><%= cl_image_tag item.photo, crop: :fill %></a>
       </div>
     <% end %>
     <div class="card-product-infos flex-grow-1">

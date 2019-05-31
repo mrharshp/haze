@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :find_group
-  before_action :find_list, only: [:edit, :update, :destroy]
+  before_action :find_list, only: [:edit, :update, :destroy, :show]
   before_action :footer, only: [:index, :show, :new, :edit]
 
   def index

@@ -13,7 +13,7 @@
 </div>
 <div class="scroll">
   <% @groups.each do |group| %>
-    <%= link_to group_path(group) do %>
+    <div type="button" data-toggle="modal" data-target="#exampleModalCenter_<%= group.id %>" data-group=<%= group.name %>>
       <% if group.photo.url.nil? %>
         <div class="card-banner">
           <h4><%= group.name %></h4>
@@ -23,14 +23,14 @@
           <h4><%= group.name %></h4>
         </div>
       <% end %>
-    <% end %>
+    </div>
   <% end %>
 </div>
 <div class="footer">
   <%= link_to "My Profile", user_path(current_user), class: "link-white" %>
 </div>
 
-<!-- Modal -->
+<!-- Modal for Group Creation -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -49,3 +49,24 @@
     </div>
   </div>
 </div>
+
+<!-- Modal for Group- List, Expenses, Chat-->
+<% @groups.each do |group| %>
+
+<div class="modal fade" id="exampleModalCenter_<%= group.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="">
+      <div class="modal-content-groups">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div>
+            <%= link_to "Chatroom", group_path(group), class: "modal-button-group" %>
+            <%= link_to "List", group_lists_path(group), class: "modal-button-group" %>
+        </div>
+            <!-- Add link for expenses here-->
+      </div>
+    </div>
+  </div>
+<% end %>
+
+

@@ -58,4 +58,29 @@
     top: 10px;
 }
 
+.modal-content-groups {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue;
+  color: $white;
+  border-radius: 20px;
+  height: 200px;
+  position: relative;
+  width: 100%;
+}
 
+.modal-button-group {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+  color: $blue;
+  border-radius: 20px;
+  height: 36px;
+  border: none;
+  margin: 10px auto;
+  width: 290px;
+}
