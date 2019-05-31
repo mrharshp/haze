@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #   root :to => "pages#home"
   # end
   resources :groups do
+    resources :expenses
     resources :lists do
       resources :list_items
     end

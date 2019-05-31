@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2019_05_31_094249) do
     t.index ["group_id"], name: "index_conversations_on_group_id"
   end
 
+  create_table "expenses", force: :cascade do |t|
+    t.bigint "group_id"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "currency"
+    t.string "description"
+    t.index ["group_id"], name: "index_expenses_on_group_id"
+  end
+
   create_table "group_memberships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "group_id"
@@ -75,6 +85,17 @@ ActiveRecord::Schema.define(version: 2019_05_31_094249) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "splits", force: :cascade do |t|
+    t.bigint "expense_id"
+    t.bigint "user_id"
+    t.float "customsplit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "paid"
+    t.index ["expense_id"], name: "index_splits_on_expense_id"
+    t.index ["user_id"], name: "index_splits_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -100,6 +121,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_094249) do
   end
 
   add_foreign_key "conversations", "groups"
+  add_foreign_key "expenses", "groups"
   add_foreign_key "group_memberships", "groups"
   add_foreign_key "group_memberships", "users"
   add_foreign_key "list_items", "lists"
@@ -110,4 +132,6 @@ ActiveRecord::Schema.define(version: 2019_05_31_094249) do
   add_foreign_key "messages", "users"
   add_foreign_key "votes", "list_items"
   add_foreign_key "votes", "users"
+  add_foreign_key "splits", "expenses"
+  add_foreign_key "splits", "users"
 end
