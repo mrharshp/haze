@@ -30,6 +30,7 @@
         <%= simple_form_for [@group, @list, @list_item] do |f| %>
           <%= f.input :title, input_html: { class: "modal-title" } %>
           <%= f.input :description, input_html: { class: "modal-title" } %>
+          <%= f.input :url, input_html: { class: "modal-title" } %>
           <div class="d-flex justify-content-between align-items-center">
             <p>📷 List Photo (Optional)</p>
             <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'modal-button-plus-sm'}, label: '+' %>
