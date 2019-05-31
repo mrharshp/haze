@@ -55,13 +55,13 @@
 
 <div class="modal fade" id="exampleModalCenter_<%= group.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="">
-      <div class="modal-content-groups">
+      <div class="modal-content groups">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <div>
-            <%= link_to "Chatroom", group_path(group), class: "modal-button-group" %>
-            <%= link_to "List", group_lists_path(group), class: "modal-button-group" %>
+            <%= link_to "Chatroom", group_path(group), class: "modal-button btn-group" %>
+            <%= link_to "List", group_lists_path(group), class: "modal-button btn-group" %>
         </div>
             <!-- Add link for expenses here-->
       </div>
