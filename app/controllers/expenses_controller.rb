@@ -1,12 +1,15 @@
 class ExpensesController < ApplicationController
 before_action :find_expense, only: [:show, :edit, :update, :destroy]
+before_action :footer, only: [:index, :new]
 
   def index
     @expenses = policy_scope(Expense)
     @splits = policy_scope(Split)
+    @group = Group.find(params[:group_id])
   end
 
   def show
+
   end
 
   def new
@@ -17,7 +20,6 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    # raise
     @expense = Expense.new
     @group = Group.find(params[:group_id])
     @expense.group = @group
@@ -48,15 +50,17 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+
   end
 
   def update
+
   end
 
   def destroy
   end
 
-private
+  private
 
   def find_expense
     @expense = Expense.find(params[:id])
