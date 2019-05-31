@@ -1,25 +1,48 @@
-<% @expenses.each do |expense| %>
-<div>
-<p>
-  <%= expense.description %>
-  <%= expense.value %>
-  <%= expense.currency %>
-</p>
-</div>
-<% end %>
-
-<% @splits.each do |split| %>
-<div>
-<p>
-  <%= split.user.name %>
-  Expense_id : <%= split.expense.id %>
-  Paid? : <%= split.paid %>
-  CS? : <%= split.customsplit.round(2) %>
-  <% if split.paid == false %>
-    <%= split.user.name %> owes: <%= split.expense.value * split.customsplit %>
-  <% else %>
-    <%= split.user.name %> is owed: <%= (split.expense.value / params[:paid].to_i) - (split.expense.value * split.customsplit)  %>
+<div class="header3">
+  <%= link_to groups_path(@group), class: "button-back mb-3" do %>
+    <i class="fas fa-arrow-left"></i>
   <% end %>
-</p>
+  <div id="titles">
+    <h3 class="uppercase"><%= @group.name %></h3>
+    <p id="subtitle">Expenses</p>
+  </div>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="mt-4">
+      <%= link_to new_group_expense_path(@group), class: "button-plus-sm" do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    </div>
+    <p class="label-for-plus-btn">Add</p>
+  </div>
 </div>
-<% end %>
+<div class="d-flex m-2 justify-content-around">
+  <%= link_to "Group Chat", group_path(@group), class: "button-sm w-50" %>
+  <%= link_to "Lists", group_lists_path(@group), class: "button-sm w-50" %>
+</div>
+<div class="scroll">
+  <% @expenses.each do |expense| %>
+  <div>
+  <p>
+    <%= expense.description %>
+    <%= expense.value %>
+    <%= expense.currency %>
+  </p>
+  </div>
+  <% end %>
+
+  <% @splits.each do |split| %>
+  <div>
+  <p>
+    <%= split.user.name %>
+    Expense_id : <%= split.expense.id %>
+    Paid? : <%= split.paid %>
+    CS? : <%= split.customsplit.round(2) %>
+    <% if split.paid == false %>
+      <%= split.user.name %> owes: <%= split.expense.value * split.customsplit %>
+    <% else %>
+      <%= split.user.name %> is owed: <%= (split.expense.value / params[:paid].to_i) - (split.expense.value * split.customsplit)  %>
+    <% end %>
+  </p>
+  </div>
+  <% end %>
+</div>
