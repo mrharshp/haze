@@ -15,23 +15,21 @@
     <p class="label-for-plus-btn">Add</p>
   </div>
 </div>
-
-<% @lists.each do |list| %>
-  <%= link_to group_list_path(@group, list) do %>
-    <% if list.photo.url.nil? %>
-      <div class="card-banner">
-        <h4><%= list.name %></h4>
-      </div>
-    <% else %>
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo %>')">
-        <h4><%= list.name %></h4>
-      </div>
+<div class="scroll">
+  <% @lists.each do |list| %>
+    <%= link_to group_list_path(@group, list) do %>
+      <% if list.photo.url.nil? %>
+        <div class="card-banner">
+          <h4><%= list.name %></h4>
+        </div>
+      <% else %>
+        <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo %>')">
+          <h4><%= list.name %></h4>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
-<br>
-<br>
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="document">
