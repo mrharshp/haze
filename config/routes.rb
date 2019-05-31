@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'votes/create'
   devise_for :users
   root to: "pages#home"
   # root to: "groups#index"
@@ -18,11 +19,12 @@ Rails.application.routes.draw do
   resources :conversations, only: [:show] do
     resources :messages, only: [:create]
   end
-  
+
   resources :list_items do
     member do
       post "/upvote", to: "list_items#upvote"
       post "/downvote", to: "list_items#downvote"
     end
+    resources :votes, only: [:create]
   end
 end

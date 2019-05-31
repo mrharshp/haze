@@ -10,7 +10,7 @@
     <div class="card-product-infos flex-grow-1">
         <% if item.user == current_user %>
           <div>
-            <h2><%= link_to item.title, edit_group_list_list_item_path(@group, @list, item) %></h2>
+            <h2><%= link_to item.title, edit_group_list_list_item_path(@list.group, @list, item) %></h2>
             <p><%= item.description %></p>
             <p>Added by <%= item.user.name %></p>
           </div>
@@ -25,13 +25,13 @@
     <div>
       <div class="d-flex mr-2">
         <span class="mr-1" id="upvote-<%= item.id %>"><%= item.upvote %></span>
-        <%= link_to  upvote_list_item_path(item), remote: true, method: :post do %>
+        <%= link_to list_item_votes_path(item, upvote: true, list_id: item.list.id), remote: true, method: :post do %>
           <i class="far fa-thumbs-up"></i>
         <% end %>
       </div>
       <div class="d-flex mr-2">
         <span class="mr-1" id="downvote-<%= item.id %>"><%= item.downvote %></span>
-        <%= link_to  downvote_list_item_path(item), remote: true, method: :post do %>
+        <%= link_to  list_item_votes_path(item, upvote: false, list_id: item.list.id), remote: true, method: :post do %>
           <i class="far fa-thumbs-down"></i>
         <% end %>
       </div>
