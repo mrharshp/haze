@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :store_previous_location
   include Pundit
 
   # Pundit: white-list approach.
@@ -18,8 +19,11 @@ class ApplicationController < ActionController::Base
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
-
   private
+
+  def store_previous_location
+    @previous_location = request.referer
+  end
 
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || groups_path

@@ -84,3 +84,15 @@
   margin: 10px auto;
   width: 290px;
 }
+
+.list_items-content {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue;
+  color: $white;
+  border-radius: 20px;
+  height: 450px;
+  position: relative;
+}
