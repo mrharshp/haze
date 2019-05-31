@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 2019_05_31_085026) do
-=======
 ActiveRecord::Schema.define(version: 2019_05_31_093500) do
->>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +27,8 @@ ActiveRecord::Schema.define(version: 2019_05_31_093500) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< Updated upstream
-=======
     t.string "currency"
     t.string "description"
->>>>>>> Stashed changes
     t.index ["group_id"], name: "index_expenses_on_group_id"
   end
 
@@ -98,10 +91,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_093500) do
     t.float "customsplit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< Updated upstream
-=======
     t.boolean "paid"
->>>>>>> Stashed changes
     t.index ["expense_id"], name: "index_splits_on_expense_id"
     t.index ["user_id"], name: "index_splits_on_user_id"
   end
