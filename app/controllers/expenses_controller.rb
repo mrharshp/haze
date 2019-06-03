@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class ExpensesController < ApplicationController
 before_action :find_expense, only: [:show, :edit, :update, :destroy]
 # before_action :footer, only: [:index, :new]
@@ -9,7 +12,6 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-
   end
 
   def new
@@ -17,9 +19,11 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
     @group = Group.find(params[:group_id])
     @expense.group = @group
     authorize @expense
+    find_currencies
   end
 
   def create
+    find_currencies
     @expense = Expense.new
     @group = Group.find(params[:group_id])
     @expense.group = @group
@@ -44,22 +48,25 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
         @split.save!
       end
       redirect_to group_expenses_path(@group)
-      # + "?paid=#{@paid_by_users_count}&split=#{@split_between_users_count}")
     else
       render :new
     end
   end
 
   def edit
+    @group = Group.find(params[:group_id])
   end
 
   def update
     @group = Group.find(params[:group_id])
-    @expense.update[expense_params]
+    @expense.update(expense_params)
     redirect_to group_expenses_path(@group)
   end
 
   def destroy
+    @group = Group.find(params[:group_id])
+    @expense.destroy
+    redirect_to group_expenses_path(@group)
   end
 
   private
@@ -73,6 +80,15 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
     params.require(:expense).permit(:value, :currency, :description)
   end
 
+  def find_currencies
+    url = 'https://openexchangerates.org/api/currencies.json?app_id='
+    currency = JSON.parse(open(url).read)
+    @final_currency = []
+    currency.map do |cu, country|
+      @final_currency << { country: country, symbol: cu }
+    end
+  end
+  
   # def footer
   #   @footer = true
   # end

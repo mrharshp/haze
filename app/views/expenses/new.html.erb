@@ -14,11 +14,16 @@
     <div class="d-flex">
       <div>
         <label>Amount:</label>
-        <input type="input" name="amount" value="" placeholder="20" class="form-control">
+        <input type="input" name="amount" value="" placeholder="How much?" class="form-control">
       </div>
       <div>
         <label>Currency:</label>
-        <input type="input" name="currency" value="" placeholder="GBP" class="form-control">
+        <select class="custom-select form-control" id="inputGroupSelect02" name="currency">
+          <option selected>Which currency?</option>
+          <% @final_currency.each do |currency| %>
+              <option name="currency" ><%= currency[:symbol] %>: <%= currency[:country] %></option>
+          <% end %>
+        </select>
       </div>
 
     </div>
@@ -27,11 +32,12 @@
     <input type="hidden" name="paid_by[user_ids][]" value="">
     <div class="user-choices">
       <% @group.users.each do |u| %>
-        <input type="checkbox" class="hidden" value="<%= u.id %>" name="paid_by[user_ids][]" id="paid_by_user_ids_<%= u.id %>">
-        <label for="paid_by_user_ids_<%= u.id %>">
-          <%= u.name %>
-          <i class="fa fa-check"></i>
-        </label>
+        <div>
+          <input type="checkbox" class="hidden" value="<%= u.id %>" name="paid_by[user_ids][]" id="paid_by_user_ids_<%= u.id %>">
+          <label for="paid_by_user_ids_<%= u.id %>">
+            <%= u.name %>
+          </label>
+        </div>
       <% end %>
     <br>
     <label class="control-label check_boxes optional">Split between:</label>
@@ -41,10 +47,9 @@
         <input type="checkbox" class="hidden" value="<%= u.id %>" name="split_between[user_ids][]" id="split_between_user_ids_<%= u.id %>">
         <label for="split_between_user_ids_<%= u.id %>">
           <%= u.name %>
-          <i class="fa fa-check"></i>
         </label>
       <% end %>
-      <input type="submit">
+      <input type="submit" class="button">
      </div>
   </div>
   <% end %>

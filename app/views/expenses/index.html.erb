@@ -25,14 +25,17 @@
   Net Amount
 </div>
 
-
       <div class="scroll">
         <% @expenses.each do |expense| %>
         <div class="card-expenses">
           <div class="card-expenses-infos">
+                    <%= link_to edit_group_expense_path(@group, expense) do %>
           <p><%= expense.description %></p>
-          <h2><%= expense.value %> <%= expense.currency %></h2>
+          <h2><%= expense.value %> <%= expense.currency.first(3) %></h2>
+                    <% end %>
           </div>
+
+
       <div class="card-expenses-split">
         <% expense.splits.each do |u| %>
           <% if u.user == current_user && u.paid == false %>
