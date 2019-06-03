@@ -10,7 +10,11 @@
     <div class="card-product-infos flex-grow-1">
         <% if item.user == current_user %>
           <div>
-            <h2><%= link_to item.title, edit_group_list_list_item_path(@list.group, @list, item) %></h2>
+            <h2>
+              <%= link_to edit_group_list_list_item_path(@list.group, @list, item) do %>
+                <%= item.title %> <i class="fas fa-pencil-alt"></i>
+              <% end %>
+            </h2>
             <p><%= item.description %></p>
             <p>Added by <%= item.user.name %></p>
           </div>

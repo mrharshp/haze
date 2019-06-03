@@ -15,6 +15,7 @@
     <p class="label-for-plus-btn">Add</p>
   </div>
 </div>
+
 <div class="d-flex m-2 justify-content-around">
   <%= link_to "Home", groups_path, class: "button-sm w-30" %>
   <%= link_to "Group Chat", group_path(@group), class: "button-sm w-30", id: "button-groupchat" %>
@@ -25,23 +26,26 @@
   Net Amount
 </div>
 
+<div class="scroll">
+  <% @expenses.each do |expense| %>
+  <div class="card-expenses">
+    <div class="card-expenses-infos">
+    <%= link_to edit_group_expense_path(@group, expense) do %>
+      <p><%= expense.description %> <i class="fas fa-pencil-alt"></i></p>
+      <h2>
+        <%= expense.value %> <%= expense.currency.first(3) %>
+      </h2>
+    <% end %>
+    </div>
 
-      <div class="scroll">
-        <% @expenses.each do |expense| %>
-        <div class="card-expenses">
-          <div class="card-expenses-infos">
-          <p><%= expense.description %></p>
-          <h2><%= expense.value %> <%= expense.currency %></h2>
-          </div>
-      <div class="card-expenses-split">
-        <% expense.splits.each do |u| %>
-          <% if u.user == current_user && u.paid == false %>
-            <p>You Owe: <%= '%.2f' % (u.customsplit * u.expense.value) %> <%= u.expense.currency %> </p>
-          <% elsif u.user == current_user && u.paid == true %>
-            <p>You are owed: <%= '%.2f' % ((u.expense.value) - (u.expense.value * u.customsplit)) %> <%= u.expense.currency %> </p>
-          <% end %>
+    <div class="card-expenses-split">
+      <% expense.splits.each do |u| %>
+        <% if u.user == current_user && u.paid == false %>
+          <p id="color-red">You Owe: <%= '%.2f' % (u.customsplit * u.expense.value) %> <%= u.expense.currency.first(3) %> </p>
+        <% elsif u.user == current_user && u.paid == true %>
+          <p id="color-green">You are owed: <%= '%.2f' % ((u.expense.value) - (u.expense.value * u.customsplit)) %> <%= u.expense.currency.first(3) %> </p>
         <% end %>
-        <br>
+      <% end %>
 
         <p> Split across:
           <% if expense.splits.size != 1 %>
@@ -55,8 +59,8 @@
           <% end %>
         </div>
       </div>
-
-    <% end %>
+    </div>
+  <% end %>
 </div>
 
 
