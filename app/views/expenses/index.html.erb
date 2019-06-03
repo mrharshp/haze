@@ -24,10 +24,11 @@
   <div class="card-expenses">
     <% @expenses.each do |expense| %>
       <div class="card-expenses-infos">
-        <h2>
-          <%= expense.value %>
-          <%= expense.currency %>
-        </h2>
+        <%= link_to edit_group_expense_path(@group, expense) do %>
+            <h2>
+              <%= expense.value %> : <%= expense.currency %>
+            </h2>
+        <% end %>
         <p><%= expense.description %></p>
       </div>
     <% end  %>
