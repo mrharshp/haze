@@ -8,7 +8,7 @@
 <div class="container">
   <%= simple_form_for [@group, @expense] do |f| %>
     <%= f.input :value %>
-    <%= f.input :currency %>
+    <%= f.input :currency, collection: @currencies %>
     <%= f.input :description %>
     <%= f.submit "Edit expense", class: "button" %>
   <% end %>

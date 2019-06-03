@@ -55,12 +55,22 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
 
   def edit
     @group = Group.find(params[:group_id])
+    find_currencies
+    @currencies = []
+    @final_currency.each do |currency|
+      @currencies << "#{currency[:symbol]}: #{currency[:country]}"
+    end
   end
 
   def update
     @group = Group.find(params[:group_id])
     @expense.update(expense_params)
     redirect_to group_expenses_path(@group)
+    find_currencies
+    @currencies = []
+    @final_currency.each do |currency|
+      @currencies << "#{currency[:symbol]}: #{currency[:country]}"
+    end
   end
 
   def destroy
@@ -88,7 +98,7 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
       @final_currency << { country: country, symbol: cu }
     end
   end
-  
+
   # def footer
   #   @footer = true
   # end
