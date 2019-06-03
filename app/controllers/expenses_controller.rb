@@ -99,6 +99,8 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
     end
   end
 
+
+
   # def footer
   #   @footer = true
   # end
