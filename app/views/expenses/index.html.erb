@@ -23,24 +23,26 @@
   <div class="card-expenses">
     <% @expenses.each do |expense| %>
       <div class="card-expenses-infos">
-        <h2>
-          <%= expense.value %>
-          <%= expense.currency %>
-        </h2>
+        <%= link_to edit_group_expense_path(@group, expense) do %>
+            <h2>
+              <%= expense.value %> : <%= expense.currency %>
+            </h2>
+        <% end %>
         <p><%= expense.description %></p>
       </div>
     <% end  %>
     <% @splits.each do |split| %>
+      <% expense = split.expense %>
       <div class="card-expenses-split">
         <p>
           <%= split.user.name %>
-          Expense_id : <%= split.expense.id %>
+          Expense_id : <%= expense.id %>
           Paid? : <%= split.paid %>
           CS? : <%= split.customsplit.round(2) %>
           <% if split.paid == false %>
-            <%= split.user.name %> owes: <%= split.expense.value * split.customsplit %>
+            <%= split.user.name %> owes: <%= expense.value * split.customsplit %>
           <% else %>
-            <%= split.user.name %> is owed: <%= (split.expense.value / params[:paid].to_i) - (split.expense.value * split.customsplit)  %>
+            <%= split.user.name %> is owed: <%= (expense.value / expense.splits.size) - (expense.value * split.customsplit)  %>
           <% end %>
         </p>
       </div>
