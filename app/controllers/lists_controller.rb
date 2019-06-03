@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :find_group
   before_action :find_list, only: [:edit, :update, :destroy, :show]
-  before_action :footer, only: [:index, :show, :new, :edit]
+  # before_action :footer, only: [:index, :show, :new, :edit]
 
   def index
     @list = List.new
@@ -65,7 +65,7 @@ class ListsController < ApplicationController
     params.require(:list).permit(:name, :photo, :group_id)
   end
 
-  def footer
-    @footer = true
-  end
+  # def footer
+  #   @footer = true
+  # end
 end

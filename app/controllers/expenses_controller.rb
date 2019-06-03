@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
 before_action :find_expense, only: [:show, :edit, :update, :destroy]
-before_action :footer, only: [:index, :new]
+# before_action :footer, only: [:index, :new]
 
   def index
     @expenses = policy_scope(Expense)
@@ -73,7 +73,7 @@ before_action :footer, only: [:index, :new]
     params.require(:expense).permit(:value, :currency, :description)
   end
 
-  def footer
-    @footer = true
-  end
+  # def footer
+  #   @footer = true
+  # end
 end
