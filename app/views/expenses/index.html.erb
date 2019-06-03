@@ -25,7 +25,7 @@
       <div class="card-expenses-infos">
         <h2>
           <%= expense.value %>
-          <%= expense.currency %>
+          <%= expense.currency.first(3) %>
         </h2>
         <p><%= expense.description %></p>
       </div>
