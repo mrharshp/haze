@@ -1,6 +1,9 @@
+require 'open-uri'
+require 'json'
+
 class ExpensesController < ApplicationController
 before_action :find_expense, only: [:show, :edit, :update, :destroy]
-before_action :footer, only: [:index, :new]
+# before_action :footer, only: [:index, :new]
 
   def index
     @expenses = policy_scope(Expense)
@@ -9,7 +12,6 @@ before_action :footer, only: [:index, :new]
   end
 
   def show
-
   end
 
   def new
@@ -17,9 +19,11 @@ before_action :footer, only: [:index, :new]
     @group = Group.find(params[:group_id])
     @expense.group = @group
     authorize @expense
+    find_currencies
   end
 
   def create
+    find_currencies
     @expense = Expense.new
     @group = Group.find(params[:group_id])
     @expense.group = @group
@@ -27,8 +31,8 @@ before_action :footer, only: [:index, :new]
     @expense.value = params[:amount]
     @expense.currency = params[:currency]
     authorize @expense
-    @paid_by_users_count = params[:paid_by][:user_ids].drop(1).length
-    @split_between_users_count = params[:split_between][:user_ids].drop(1).length
+    # @paid_by_users_count = params[:paid_by][:user_ids].drop(1).length
+    # @split_between_users_count = params[:split_between][:user_ids].drop(1).length
     if @expense.save
       params[:split_between][:user_ids].drop(1).each do |u|
         member = u.to_i
@@ -43,21 +47,36 @@ before_action :footer, only: [:index, :new]
         authorize @split
         @split.save!
       end
-      redirect_to(group_expenses_path(@group) + "?paid=#{@paid_by_users_count}&split=#{@split_between_users_count}")
+      redirect_to group_expenses_path(@group)
     else
       render :new
     end
   end
 
   def edit
-
+    @group = Group.find(params[:group_id])
+    find_currencies
+    @currencies = []
+    @final_currency.each do |currency|
+      @currencies << "#{currency[:symbol]}: #{currency[:country]}"
+    end
   end
 
   def update
-
+    @group = Group.find(params[:group_id])
+    @expense.update(expense_params)
+    redirect_to group_expenses_path(@group)
+    find_currencies
+    @currencies = []
+    @final_currency.each do |currency|
+      @currencies << "#{currency[:symbol]}: #{currency[:country]}"
+    end
   end
 
   def destroy
+    @group = Group.find(params[:group_id])
+    @expense.destroy
+    redirect_to group_expenses_path(@group)
   end
 
   private
@@ -67,16 +86,20 @@ before_action :footer, only: [:index, :new]
     authorize @expense
   end
 
-  # def expense_params
-  #   params.require(:expense).permit(:description, :value, :currency)
-  # end
-
-  # def find_split
-  #   @split = Split.find(params[:id])
-  #   authorize @split
-  # end
-
-  def footer
-    @footer = true
+  def expense_params
+    params.require(:expense).permit(:value, :currency, :description)
   end
+
+  def find_currencies
+    url = 'https://openexchangerates.org/api/currencies.json?app_id='
+    currency = JSON.parse(open(url).read)
+    @final_currency = []
+    currency.map do |cu, country|
+      @final_currency << { country: country, symbol: cu }
+    end
+  end
+
+  # def footer
+  #   @footer = true
+  # end
 end

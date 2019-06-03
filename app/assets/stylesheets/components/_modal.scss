@@ -25,12 +25,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $white;
   color: $blue;
+  background-color: $white;
   border-radius: 20px;
   width: 290px;
   height: 36px;
-  border: none
+  border: none;
+  margin: 10px;
 }
 
 .modal-button-plus-sm {

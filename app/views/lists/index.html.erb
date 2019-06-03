@@ -3,7 +3,7 @@
     <i class="fas fa-arrow-left"></i>
   <% end %>
   <div id="titles">
-    <h3 class="uppercase"><%= @group.name %></h3>
+    <h3 class="uppercase"><%= link_to @group.name, edit_group_path(@group) %> <i class="fas fa-pencil-alt"></i></h3>
     <p id="subtitle">Lists</p>
   </div>
   <div class="mt-4 d-flex flex-column justify-content-center align-items-center">
@@ -16,8 +16,9 @@
   </div>
 </div>
 <div class="d-flex m-2 justify-content-around">
-  <%= link_to "Group Chat", group_path(@group), class: "button-sm w-50" %>
-  <%= link_to "Expenses", group_expenses_path(@group), class: "button-sm w-50" %>
+  <%= link_to "Home", groups_path, class: "button-sm w-30" %>
+  <%= link_to "Group Chat", group_path(@group), class: "button-sm w-30", id: "button-groupchat" %>
+  <%= link_to "Expenses", group_expenses_path(@group), class: "button-sm w-30", id: "button-expenses" %>
 </div>
 <div class="scroll">
   <% @lists.each do |list| %>

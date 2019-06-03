@@ -1,0 +1,17 @@
+<div class="header3">
+  <%= link_to @previous_location, class: "button-back mb-3" do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
+  <h3 class="uppercase">Edit an expense</h3>
+</div>
+<br>
+<div class="container">
+  <%= simple_form_for [@group, @expense] do |f| %>
+    <%= f.input :value %>
+    <%= f.input :currency, collection: @currencies %>
+    <%= f.input :description %>
+    <%= f.submit "Edit expense", class: "button" %>
+  <% end %>
+  <%= link_to "Delete expense", group_expense_path(@group), method: :delete, data: { confirm: "Are you sure?" }, class: "button mt-2", id: "button-color-light-blue" %>
+  <br>
+</div>

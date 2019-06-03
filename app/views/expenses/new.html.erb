@@ -12,40 +12,63 @@
     <input type="input" name="description" value="" placeholder="What did you spend on?" class="form-control">
     <br>
     <div class="d-flex">
-      <div>
+      <div class="w-50">
         <label>Amount:</label>
-        <input type="input" name="amount" value="" placeholder="20" class="form-control">
+        <input type="input" name="amount" value="" placeholder="How much?" class="form-control">
       </div>
-      <div>
+      <div class="w-50">
         <label>Currency:</label>
-        <input type="input" name="currency" value="" placeholder="GBP" class="form-control">
+        <select class="custom-select form-control" id="inputGroupSelect02" name="currency">
+          <option>Which currency?</option>
+          <% @final_currency.each do |currency| %>
+              <option name="currency" ><%= currency[:symbol] %>: <%= currency[:country] %></option>
+          <% end %>
+        </select>
       </div>
 
     </div>
     <br>
-    <label class="control-label check_boxes optional">Paid by:</label>
-    <input type="hidden" name="paid_by[user_ids][]" value="">
-    <div class="user-choices">
-      <% @group.users.each do |u| %>
-        <input type="checkbox" class="hidden" value="<%= u.id %>" name="paid_by[user_ids][]" id="paid_by_user_ids_<%= u.id %>">
-        <label for="paid_by_user_ids_<%= u.id %>">
-          <%= u.name %>
-          <i class="fa fa-check"></i>
-        </label>
-      <% end %>
+    <div class="d-flex justify-content-center">
+
+      <div class="mr-4">
+        <label class="control-label check_boxes optional">Group Members:</label>
+        <div class="user-choices">
+          <% @group.users.each do |u| %>
+            <div>
+              <p class="my-0 py-0"><%= u.name %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="mr-4 text-center">
+        <label class="control-label check_boxes optional">Paid by:</label>
+        <input type="hidden" name="paid_by[user_ids][]" value="">
+        <div class="user-choices">
+          <% @group.users.each do |u| %>
+            <div>
+              <input type="checkbox" class="hidden" value="<%= u.id %>" name="paid_by[user_ids][]" id="paid_by_user_ids_<%= u.id %>">
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="text-center">
+        <label class="control-label check_boxes optional">Split between:</label>
+        <input type="hidden" name="split_between[user_ids][]" value="">
+        <div class="user-choices">
+          <% @group.users.each do |u| %>
+          <div>
+            <input type="checkbox" class="hidden" value="<%= u.id %>" name="split_between[user_ids][]" id="split_between_user_ids_<%= u.id %>">
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
     <br>
-    <label class="control-label check_boxes optional">Split between:</label>
-    <input type="hidden" name="split_between[user_ids][]" value="">
-    <div class="user-choices">
-      <% @group.users.each do |u| %>
-        <input type="checkbox" class="hidden" value="<%= u.id %>" name="split_between[user_ids][]" id="split_between_user_ids_<%= u.id %>">
-        <label for="split_between_user_ids_<%= u.id %>">
-          <%= u.name %>
-          <i class="fa fa-check"></i>
-        </label>
-      <% end %>
-      <input type="submit">
-     </div>
-  </div>
+      <input type="submit" class="button">
   <% end %>
 </div>

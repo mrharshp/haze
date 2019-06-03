@@ -60,9 +60,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <div>
-            <%= link_to "Group Chat", group_path(group), class: "modal-button btn-group" %>
-            <%= link_to "Lists", group_lists_path(group), class: "modal-button btn-group" %>
-            <%= link_to "Expenses", group_expenses_path(group), class: "modal-button btn-group" %>
+            <%= link_to "Group Chat", group_path(group), class: "modal-button btn-group", id: "button-groupchat" %>
+            <%= link_to "Lists", group_lists_path(group), class: "modal-button btn-group", id: "button-lists" %>
+            <%= link_to "Expenses", group_expenses_path(group), class: "modal-button btn-group", id: "button-expenses" %>
         </div>
             <!-- Add link for expenses here-->
       </div>

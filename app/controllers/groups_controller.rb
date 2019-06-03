@@ -2,8 +2,8 @@ require 'securerandom'
 
 class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update]
-  before_action :footer, only: [:new]
   skip_after_action :verify_authorized, only: :invite
+  # before_action :footer, only: [:new]
 
   def index
     @group = Group.new
@@ -70,7 +70,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :photo)
   end
 
-  def footer
-    @footer = true
-  end
+  # def footer
+  #   @footer = true
+  # end
 end
