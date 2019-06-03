@@ -29,3 +29,20 @@
 #button-color-light-blue {
   background-color: $light-blue !important;
 }
+
+.button-people {
+  border: none;
+  width: 100px;
+  height: 20px;
+  border-color: $yellow;
+  color: $white;
+  background-color: $burgund;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  &:hover{
+    text-decoration: none;
+  }
+}
