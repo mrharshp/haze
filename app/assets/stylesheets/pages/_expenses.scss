@@ -6,7 +6,6 @@
   justify-content: center;
   text-align: center;
   margin-bottom: 5px;
-
 }
 
 .card-expenses-infos {
@@ -16,7 +15,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
 }
 
 .card-expenses-infos h2 {
@@ -50,13 +48,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 5px;
 }
 
 .card-expenses-split p {
   font-size: 14px;
   line-height: 1.4;
   opacity: .7;
+  margin: 0px;
 }
 
 #color-red {
