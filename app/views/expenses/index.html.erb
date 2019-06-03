@@ -26,7 +26,7 @@
       <div class="card-expenses-infos">
         <%= link_to edit_group_expense_path(@group, expense) do %>
             <h2>
-              <%= expense.value %> : <%= expense.currency %>
+              <%= expense.value %> : <%= expense.currency.first(3) %>
             </h2>
         <% end %>
         <p><%= expense.description %></p>
