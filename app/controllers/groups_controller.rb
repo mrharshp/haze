@@ -3,6 +3,7 @@ require 'securerandom'
 class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update]
   before_action :footer, only: [:new]
+  skip_after_action :verify_authorized, only: :invite
 
   def index
     @group = Group.new
@@ -35,12 +36,21 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     if params[:query].present?
       sql_query = "name ILIKE :query OR email ILIKE :query"
       @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
     else
       @users = []
     end
+   end
+
+  def invite
+   if params["friend_email"].present?
+    @friend_email = params["friend_email"]
+    @group_id = params["group_id"]
+    UserMailer.with(friend_email: @friend_email, sender_name: current_user.name, group_id: @group_id).invite.deliver_now
+   end
   end
 
   def update

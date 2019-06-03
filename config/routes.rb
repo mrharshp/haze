@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   get 'votes/create'
+  post 'groups/invite'
   devise_for :users
   root to: "pages#home"
   # root to: "groups#index"
