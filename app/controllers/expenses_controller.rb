@@ -27,8 +27,8 @@ before_action :footer, only: [:index, :new]
     @expense.value = params[:amount]
     @expense.currency = params[:currency]
     authorize @expense
-    @paid_by_users_count = params[:paid_by][:user_ids].drop(1).length
-    @split_between_users_count = params[:split_between][:user_ids].drop(1).length
+    # @paid_by_users_count = params[:paid_by][:user_ids].drop(1).length
+    # @split_between_users_count = params[:split_between][:user_ids].drop(1).length
     if @expense.save
       params[:split_between][:user_ids].drop(1).each do |u|
         member = u.to_i
@@ -43,18 +43,20 @@ before_action :footer, only: [:index, :new]
         authorize @split
         @split.save!
       end
-      redirect_to(group_expenses_path(@group) + "?paid=#{@paid_by_users_count}&split=#{@split_between_users_count}")
+      redirect_to group_expenses_path(@group)
+      # + "?paid=#{@paid_by_users_count}&split=#{@split_between_users_count}")
     else
       render :new
     end
   end
 
   def edit
-
   end
 
   def update
-
+    @group = Group.find(params[:group_id])
+    @expense.update[expense_params]
+    redirect_to group_expenses_path(@group)
   end
 
   def destroy
@@ -67,14 +69,9 @@ before_action :footer, only: [:index, :new]
     authorize @expense
   end
 
-  # def expense_params
-  #   params.require(:expense).permit(:description, :value, :currency)
-  # end
-
-  # def find_split
-  #   @split = Split.find(params[:id])
-  #   authorize @split
-  # end
+  def expense_params
+    params.require(:expense).permit(:value, :currency, :description)
+  end
 
   def footer
     @footer = true
