@@ -14,7 +14,8 @@
    <br>
    <h5><%= @user.name %></h5>
    <h5><%= @user.email %></h5>
-  <p>Your Home Currency: <%= @user.homecurrency %></p>
+   <br>
+  <p>Your Home Currency is <%= @user.homecurrency %></p>
    <br>
    <p><%= link_to "Update Profile", edit_user_registration_path %></p>
    <p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
