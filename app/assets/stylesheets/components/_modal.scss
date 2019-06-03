@@ -20,41 +20,13 @@
   height: 36px;
 }
 
-.modal-button-groupchat {
+.modal-button {
   font-size: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $brick;
-  color: $white;
-  border-radius: 20px;
-  width: 290px;
-  height: 36px;
-  border: none;
-  margin: 10px;
-}
-
-.modal-button-lists {
-  font-size: 17px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $yellow;
-  color: $white;
-  border-radius: 20px;
-  width: 290px;
-  height: 36px;
-  border: none;
-  margin: 10px;
-}
-
-.modal-button-expenses {
-  font-size: 17px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $burgund;
-  color: $white;
+  color: $blue;
+  background-color: $white;
   border-radius: 20px;
   width: 290px;
   height: 36px;
@@ -105,8 +77,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // background-color: $white;
-  // color: $blue;
+  background-color: $white;
+  color: $blue;
   border-radius: 20px;
   height: 36px;
   border: none;
