@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  justify-content: space-evenly;
 }
 
 .card-expenses-infos h2 {
@@ -13,17 +14,20 @@
   margin: 0;
   width: 150px;
   text-align: center;
+  justify-content: space-evenly;
+  width: 60vw;
 }
 
 .card-expenses-infos p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-top: 0;
   text-align: center;
+  justify-content: space-evenly;
+  width: 60vw;
 }
-
 
 .card-expenses-infos .card-expenses-split {
   padding: 16px;
@@ -41,3 +45,4 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
