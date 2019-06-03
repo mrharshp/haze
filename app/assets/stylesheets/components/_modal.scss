@@ -20,13 +20,39 @@
   height: 36px;
 }
 
-.modal-button {
+.modal-button-blue {
   font-size: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $white;
-  color: $blue;
+  background-color: $blue;
+  color: $white;
+  border-radius: 20px;
+  width: 290px;
+  height: 36px;
+  border: none
+}
+
+.modal-button-yellow {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $yellow;
+  color: $white;
+  border-radius: 20px;
+  width: 290px;
+  height: 36px;
+  border: none
+}
+
+.modal-button-burgund {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $burgund;
+  color: $white;
   border-radius: 20px;
   width: 290px;
   height: 36px;
