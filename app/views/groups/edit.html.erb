@@ -6,13 +6,23 @@
 </div>
 <div class="form container">
   <br>
-  <h5 style="color: #54AFC3;">Invite your friends!</h5>
+  <h5 style="color: #54AFC3;">Add Participants</h5>
   <%= form_tag edit_group_path(@group), method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Add a friend"
     %>
+  <% end %>
+  <br>
+  <h5 style="color: #54AFC3;">Invite Friends Via Email!</h5>
+  <%= form_tag groups_invite_path, method: :post do %>
+    <%= text_field_tag :friend_email,
+      params[:friend_email],
+      class: "form-control",
+      placeholder: "Enter Email Address"
+    %>
+    <%= hidden_field_tag :group_id, params[:id] %>
   <% end %>
   <br>
   <% @users.each do |u| %>
