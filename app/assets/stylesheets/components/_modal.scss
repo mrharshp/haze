@@ -20,17 +20,18 @@
   height: 36px;
 }
 
-.modal-button-blue {
+.modal-button-brick {
   font-size: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $blue;
+  background-color: $brick;
   color: $white;
   border-radius: 20px;
   width: 290px;
   height: 36px;
-  border: none
+  border: none;
+  margin: 10px;
 }
 
 .modal-button-yellow {
@@ -43,7 +44,8 @@
   border-radius: 20px;
   width: 290px;
   height: 36px;
-  border: none
+  border: none;
+  margin: 10px;
 }
 
 .modal-button-burgund {
@@ -56,7 +58,8 @@
   border-radius: 20px;
   width: 290px;
   height: 36px;
-  border: none
+  border: none;
+  margin: 10px;
 }
 
 .modal-button-plus-sm {
