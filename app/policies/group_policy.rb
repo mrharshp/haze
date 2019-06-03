@@ -21,6 +21,10 @@ class GroupPolicy < ApplicationPolicy
     record.users.include?(user)
   end
 
+  def invite?
+    record.users.include?(user)
+  end
+
   def update?
     edit?
   end
