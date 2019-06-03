@@ -3,7 +3,7 @@
     <i class="fas fa-arrow-left"></i>
   <% end %>
   <div id="titles">
-    <h3 class="uppercase"><%= @group.name %></h3>
+    <h3 class="uppercase"><%= link_to @group.name, edit_group_path(@group) %> <i class="fas fa-pencil-alt"></i></h3>
     <p id="subtitle">Lists</p>
   </div>
   <div class="mt-4 d-flex flex-column justify-content-center align-items-center">
