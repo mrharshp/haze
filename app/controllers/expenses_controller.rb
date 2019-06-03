@@ -3,7 +3,7 @@ require 'json'
 
 class ExpensesController < ApplicationController
 before_action :find_expense, only: [:show, :edit, :update, :destroy]
-before_action :footer, only: [:index, :new]
+# before_action :footer, only: [:index, :new]
 
   def index
     @expenses = policy_scope(Expense)
@@ -48,22 +48,25 @@ before_action :footer, only: [:index, :new]
         @split.save!
       end
       redirect_to group_expenses_path(@group)
-      # + "?paid=#{@paid_by_users_count}&split=#{@split_between_users_count}")
     else
       render :new
     end
   end
 
   def edit
+    @group = Group.find(params[:group_id])
   end
 
   def update
     @group = Group.find(params[:group_id])
-    @expense.update[expense_params]
+    @expense.update(expense_params)
     redirect_to group_expenses_path(@group)
   end
 
   def destroy
+    @group = Group.find(params[:group_id])
+    @expense.destroy
+    redirect_to group_expenses_path(@group)
   end
 
   private
@@ -77,10 +80,6 @@ before_action :footer, only: [:index, :new]
     params.require(:expense).permit(:value, :currency, :description)
   end
 
-  def footer
-    @footer = true
-  end
-
   def find_currencies
     url = 'https://openexchangerates.org/api/currencies.json?app_id='
     currency = JSON.parse(open(url).read)
@@ -89,4 +88,8 @@ before_action :footer, only: [:index, :new]
       @final_currency << { country: country, symbol: cu }
     end
   end
+  
+  # def footer
+  #   @footer = true
+  # end
 end

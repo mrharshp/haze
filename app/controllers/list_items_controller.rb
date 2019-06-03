@@ -1,6 +1,6 @@
 class ListItemsController < ApplicationController
   before_action :find_list_item, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :footer, only: [:edit, :new]
+  # before_action :footer, only: [:edit, :new]
   before_action :find_group, only: [:new, :edit]
   before_action :find_list, only: [:new, :create, :edit, :update, :destroy]
 
@@ -64,7 +64,7 @@ class ListItemsController < ApplicationController
     @list = List.find(params[:list_id])
   end
 
-  def footer
-    @footer = true
-  end
+  # def footer
+  #   @footer = true
+  # end
 end
