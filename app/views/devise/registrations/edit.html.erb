@@ -9,10 +9,10 @@
       <div class="form-inputs">
         <%= f.input :email, required: true, autofocus: true %>
 
-        <% currencies = Currencies.find_currencies.flatten %>
+        <% currencies = Currencies.find_currencies[0] %>
         <div>
           <select class="custom-select form-control" id="inputGroupSelect02" name="user[homecurrency]">
-            <option selected>Set Home Currency:</option>
+            <option>Set Home Currency:</option>
             <% currencies.each do |currency| %>
                 <option name="user[homecurrency]" ><%= currency[:symbol] %>: <%= currency[:country] %></option>
             <% end %>

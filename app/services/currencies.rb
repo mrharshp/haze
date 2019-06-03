@@ -6,8 +6,8 @@ class Currencies
     url = 'https://openexchangerates.org/api/currencies.json?app_id='
     currency = JSON.parse(open(url).read)
     @final_currency = []
-    currency.map do |cu, country|
-      @final_currency << { country: country, symbol: cu }
+    currency.map do |sym, country|
+      @final_currency << { country: country, symbol: sym }
     end
   end
 end
