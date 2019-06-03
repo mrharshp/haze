@@ -28,7 +28,7 @@
 
 <div class="scroll">
 
-  <% @expenses.each do |expense| %>
+  <% @group.expenses.each do |expense| %>
     <div class="card-expenses">
       <div class="card-expenses-infos">
         <%= link_to edit_group_expense_path(@group, expense) do %>
