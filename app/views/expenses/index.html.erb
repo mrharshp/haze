@@ -22,8 +22,31 @@
   <%= link_to "Lists", group_lists_path(@group), class: "button-sm", id: "button-lists" %>
 </div>
 
-<div class="d-flex m-2 justify-content-around btn btn-primary">
-  Net Amount
+<div class="mx-auto my-2 net-amount">
+  <% sum = 0 %>
+  <% @group.expenses.each do |expense| %>
+    <% array = [] %>
+    <% expense.splits.each do |split| %>
+      <% if split.user == current_user %>
+        <% array << split %>
+      <% end %>
+    <% end %>
+    <% array.each do |x| %>
+      <% if x.user == current_user && x.paid == false %>
+        <% sum += x.homefxtranslation %>
+      <% elsif x.user == current_user && x.paid == true %>
+        <% @paid = expense.splits.select { |p| p.paid? }.size %>
+        <% sum -= (((x.expense.value / @paid) - (x.expense.value * x.customsplit))) / x.fx %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% if sum.round(2) <= 0 %>
+  <p id="owed">YOU ARE OWED</p>
+  <p id="sum"><%= sum.round(2) * (-1) %> <%= current_user.homecurrency.first(3) %></p>
+  <% elsif sum.round(2) > 0 %>
+  <p id="owed">YOU OWE</p>
+  <p id="sum"><%= sum.round(2) %> <%= current_user.homecurrency.first(3) %></p>
+  <% end %>
 </div>
 
 <div class="scroll">
