@@ -111,15 +111,15 @@
             <% end %>
           <% end %>
 
-          <div class="d-flex justify-content-between">
-            <div>
-              <h4>Paid:</h4>
+          <div class="modal-split">
+            <div class="modal-split-paid">
+              <h4>Who Paid?</h4>
                 <% @paid.each do |name| %>
                   <p><%= name %></p>
                 <% end %>
             </div>
-            <div>
-              <h4>Owe:</h4>
+            <div class="modal-split-owe">
+              <h4>Who Owes?</h4>
                 <% @owe.each do |name| %>
                   <p><%= name %></p>
               <% end %>
