@@ -60,7 +60,7 @@
             <% elsif u.user == current_user && u.paid == true %>
               <p id="color-blue">You are owed:  <br> <%= '%.2f' % ((u.expense.value / @paid ) - (u.expense.value * u.customsplit)) %> <%= u.expense.currency.first(3) %>
                 <% if u.user.homecurrency.first(3) != u.expense.currency.first(3) %>
-                  or <br> <%= '%.2f' % (u.homefxtranslation) %> <%= (u.user.homecurrency.first(3)) %></p>
+                  or <br> <%= '%.2f' % (u.homefxtranslation / @paid ) %> <%= (u.user.homecurrency.first(3)) %></p>
               <% end %>
             <% end %>
           <% end %>
