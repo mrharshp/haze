@@ -18,7 +18,7 @@
       </div>
       <div class="w-50">
         <label>Currency:</label>
-        <select class="custom-select form-control" id="inputGroupSelect02" name="currency">
+        <select class="custom-select form-control input-border-blue" id="inputGroupSelect02" name="currency">
           <option>Which currency?</option>
           <% @final_currency.each do |currency| %>
               <option name="currency" ><%= currency[:symbol] %>: <%= currency[:country] %></option>
