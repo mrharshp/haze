@@ -1,0 +1,94 @@
+.Pin {
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-direction: normal;
+}
+
+@keyframes slidein {
+  from {
+    margin-right: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}
+
+
+.Chat {
+  animation-duration: 1s;
+  animation-name: move-in-steps;
+  animation-direction: normal;
+  animation-delay: 1s;
+}
+
+@keyframes move-in-steps {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+.Track {
+  animation-duration: 1s;
+  animation-name: move-in-steps;
+  animation-direction: normal;
+  animation-delay: 2s;
+}
+
+@keyframes move-in-steps {
+  from {
+    margin-right: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}
+
+
+.haze {
+  animation: MoveUpDown 3s linear;
+  animation-iteration-count: infinite;
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 100px;
+  }
+}
+
+// .slogan {
+//   animation: MoveUpDown 3s linear;
+//   position: relative;
+//   left: 0;
+//   bottom: 0;
+// }
+
+// @keyframes MoveUpDown {
+//   0%, 100% {
+//     bottom: 0;
+//   }
+//   50% {
+//     bottom: 100px;
+//   }
+// }
+
+
+
