@@ -23,8 +23,18 @@
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
+      <% currencies = Currencies.find_currencies[0] %>
+      <div>
+        <select class="custom-select form-control" id="inputGroupSelect02" name="user[homecurrency]">
+          <option>Set Home Currency:</option>
+          <% currencies.each do |currency| %>
+              <option name="user[homecurrency]" ><%= currency[:symbol] %>: <%= currency[:country] %></option>
+          <% end %>
+        </select>
+      </div>
+      <br>
     </div>
-  
+
     <div class="form-actions">
       <%= f.button :submit, "Sign up", class: "button w-100" %>
     </div>

@@ -40,6 +40,10 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
         @split.user = User.find(member)
         @split.customsplit = (1 / (params[:split_between][:user_ids].length - 1).to_f)
         @split.paid = false
+          url = "https://api.exchangeratesapi.io/latest?base=#{@split.user.homecurrency.first(3)}"
+          fx = JSON.parse(open(url).read)
+          @fx = fx["rates"][@expense.currency.first(3)].to_f
+          @split.homefxtranslation = (@expense.value * @split.customsplit) / @fx
         if params[:paid_by][:user_ids].drop(1).include?(member.to_s)
           @split.paid = true
         end
@@ -96,5 +100,8 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
     currency.map do |cu, country|
       @final_currency << { country: country, symbol: cu }
     end
+  end
+
+  def fx_rate
   end
 end
