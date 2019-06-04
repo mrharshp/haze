@@ -78,9 +78,30 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+          <% @paid = [] %>
+          <% @owe = [] %>
           <% expense.splits.each do |split| %>
-            <p><%= split.user.name %></p>
+            <% if split.paid == true %>
+              <% @paid << split.user.name %>
+            <% else %>
+              <% @owe << split.user.name %>
+            <% end %>
           <% end %>
+
+          <div class="d-flex justify-content-between">
+            <div>
+              <h4>Paid:</h4>
+                <% @paid.each do |name| %>
+                  <p><%= name %></p>
+                <% end %>
+            </div>
+            <div>
+              <h4>Owe:</h4>
+                <% @owe.each do |name| %>
+                  <p><%= name %></p>
+              <% end %>
+            </div>
+          </div>
       </div>
     </div>
   </div>
