@@ -5,55 +5,65 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 5px;
+  margin: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.3);
 }
 
 .card-expenses-infos {
-  width: 40%;
-  height: 100%;
-  background-color: $yellow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-expenses-infos h2 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.card-expenses-infos p {
-  font-size: 16px;
-  line-height: 1.4;
-  opacity: .7;
-}
-
-.card-expenses-infos a {
-  font-size: 16px;
-  line-height: 1.4;
-  opacity: .7;
-}
-
-.card-expenses-infos .card-expenses-split {
-  padding: 16px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.card-expenses-split {
   width: 60%;
   height: 100%;
-  background: $light-gray;
+  background-color: $light-gray;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.card-expenses-infos h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+  color: $gray;
+}
+
+.card-expenses-infos p {
+  font-size: 16px;
+  line-height: 1.4;
+  // opacity: .7;
+  margin: 0px;
+  color: $gray;
+}
+
+.card-expenses-infos a {
+  font-size: 16px;
+  line-height: 1.4;
+  // opacity: .7;
+  color: $gray;
+  margin: 0px;
+}
+
+.card-expenses-infos .card-expenses-split {
+  padding: 5px 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-expenses-split {
+  width: 40%;
+  height: 100%;
+  background: $light-gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .9;
+  flex-direction: column;
+  // border-left: $blue;
+  // border-left-style: double;
+}
+
 .card-expenses-split p {
   font-size: 14px;
   line-height: 1.4;
-  opacity: .7;
   margin: 0px;
 }
 
@@ -62,8 +72,8 @@
   font-weight: bolder;
 }
 
-#color-green {
-  color: green;
+#color-blue {
+  color: $blue;
   font-weight: bolder;
 }
 
