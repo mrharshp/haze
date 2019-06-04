@@ -9,15 +9,6 @@
       <div class="form-inputs">
         <%= f.input :email, required: true, autofocus: true %>
 
-        <% currencies = Currencies.find_currencies[0] %>
-        <div>
-          <select class="custom-select form-control" id="inputGroupSelect02" name="user[homecurrency]">
-            <option>Set Home Currency:</option>
-            <% currencies.each do |currency| %>
-                <option name="user[homecurrency]" ><%= currency[:symbol] %>: <%= currency[:country] %></option>
-            <% end %>
-          </select>
-        </div>
 
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -35,7 +26,21 @@
                     hint: "we need your current password to confirm your changes",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
-         <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
+
+        <% currencies = Currencies.find_currencies[0] %>
+        <div class="mb-3">
+          <label for="">Home Currency:</label>
+          <select class="custom-select form-control input-border-blue" id="inputGroupSelect02" name="user[homecurrency]">
+            <option>Set Home Currency:</option>
+            <% currencies.each do |currency| %>
+                <option name="user[homecurrency]" >
+                  <%= currency[:symbol] %>: <%= currency[:country] %>
+                </option>
+            <% end %>
+          </select>
+        </div>
+
+         <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control input-border-blue" } %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Update", class: "button w-100" %>

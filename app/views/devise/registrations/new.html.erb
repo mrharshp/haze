@@ -22,25 +22,27 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :photo, input_html: { class: "border align-items-center border-radius form-control" } %>
       <% currencies = Currencies.find_currencies[0] %>
-      <div>
-        <select class="custom-select form-control" id="inputGroupSelect02" name="user[homecurrency]">
+      <div class="mb-3">
+        <label for="">Home Currency:</label>
+        <select class="custom-select form-control input-border-blue" id="inputGroupSelect02" name="user[homecurrency]">
           <option>Set Home Currency:</option>
           <% currencies.each do |currency| %>
-              <option name="user[homecurrency]" ><%= currency[:symbol] %>: <%= currency[:country] %></option>
+              <option name="user[homecurrency]" >
+                <%= currency[:symbol] %>: <%= currency[:country] %>
+              </option>
           <% end %>
         </select>
       </div>
-      <br>
+      <%= f.input :photo, input_html: { class: "align-items-center border-radius form-control input-border-blue" } %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "button w-100" %>
+      <%= f.button :submit, "Sign up", class: "button" %>
     </div>
   <% end %>
   <br>
-  <div class='button w-100' id="button-color-light-blue">
+  <div class='button' id="button-color-light-blue">
     <%= render "devise/shared/links" %>
   </div>
   <br>

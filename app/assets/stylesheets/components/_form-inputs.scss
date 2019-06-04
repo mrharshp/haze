@@ -9,3 +9,8 @@
 .btn {
   color: white;
 }
+
+.input-border-blue {
+  border: 1px solid $blue !important;
+  background-color: $light-gray;
+}
