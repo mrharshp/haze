@@ -1,0 +1,25 @@
+.net-amount {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border: 3px solid $burgund;
+  box-shadow: 0 2.5px 5px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $light-gray;
+  color: $burgund;
+  flex-direction: column;
+}
+
+#owed {
+  margin: 0px;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+#sum {
+  margin: 0px;
+  font-weight: bolder;
+  font-size: 20px;
+}
