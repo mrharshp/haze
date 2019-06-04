@@ -1,5 +1,5 @@
 <div class="header3">
-  <%= link_to @previous_location, class: "button-back mb-3" do %>
+  <%= link_to @previous_location, class: "button-back" do %>
     <i class="fas fa-arrow-left"></i>
   <% end %>
   <div id="titles">
@@ -16,9 +16,9 @@
   </div>
 </div>
 <div class="d-flex m-2 justify-content-around">
-  <%= link_to "Home", groups_path, class: "button-sm w-30" %>
-  <%= link_to "Group Chat", group_path(@group), class: "button-sm w-30", id: "button-groupchat" %>
-  <%= link_to "Expenses", group_expenses_path(@group), class: "button-sm w-30", id: "button-expenses" %>
+  <%= link_to "Home", groups_path, class: "button-sm" %>
+  <%= link_to "Group Chat", group_path(@group), class: "button-sm", id: "button-groupchat" %>
+  <%= link_to "Expenses", group_expenses_path(@group), class: "button-sm", id: "button-expenses" %>
 </div>
 <div class="scroll">
   <% @lists.each do |list| %>

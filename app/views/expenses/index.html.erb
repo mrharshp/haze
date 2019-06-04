@@ -1,5 +1,5 @@
 <div class="header3">
-  <%= link_to @previous_location, class: "button-back mb-3" do %>
+  <%= link_to @previous_location, class: "button-back" do %>
     <i class="fas fa-arrow-left"></i>
   <% end %>
   <div id="titles">
@@ -17,9 +17,9 @@
 </div>
 
 <div class="d-flex m-2 justify-content-around">
-  <%= link_to "Home", groups_path, class: "button-sm w-30" %>
-  <%= link_to "Group Chat", group_path(@group), class: "button-sm w-30", id: "button-groupchat" %>
-  <%= link_to "Lists", group_lists_path(@group), class: "button-sm w-30", id: "button-lists" %>
+  <%= link_to "Home", groups_path, class: "button-sm" %>
+  <%= link_to "Group Chat", group_path(@group), class: "button-sm", id: "button-groupchat" %>
+  <%= link_to "Lists", group_lists_path(@group), class: "button-sm", id: "button-lists" %>
 </div>
 
 <div class="d-flex m-2 justify-content-around btn btn-primary">
@@ -36,7 +36,6 @@
             <%= expense.value %> <%= expense.currency.first(3) %>
           </h2>
         <% end %>
-<!--         <div> -->
           <p>
             <% if expense.splits.size != 1 %>
               <button type="button" class="button-very-sm" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
@@ -47,7 +46,6 @@
               <%= expense.splits.size %> person</p>
               </button>
             <% end %>
-        <!-- </div> -->
       </div>
 
       <div class="card-expenses-split">
