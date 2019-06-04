@@ -98,3 +98,20 @@
   height: 450px;
   position: relative;
 }
+
+.modal-split {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid $white;
+  border-radius: 20px;
+}
+
+.modal-split-paid {
+  padding: 10px;
+}
+
+.modal-split-owe {
+  border-left: 1px solid $white;
+  padding: 10px;
+}
