@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_134844) do
+ActiveRecord::Schema.define(version: 2019_06_04_120049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_134844) do
     t.datetime "updated_at", null: false
     t.boolean "paid"
     t.boolean "settled", default: false
+    t.float "homefxtranslation"
     t.index ["expense_id"], name: "index_splits_on_expense_id"
     t.index ["user_id"], name: "index_splits_on_user_id"
   end
