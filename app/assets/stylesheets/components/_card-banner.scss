@@ -1,6 +1,8 @@
 .card-banner {
-  width: 100%;
+  // width: 100%;
   height: 100px;
+  margin: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.3);
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url('banner7.png');
   background-size: cover;
   background-position: center;
@@ -9,8 +11,6 @@
   justify-content: flex-start;
   color: $white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  margin-bottom: 5px;
-  margin-top: 5px;
   h4 {
     margin-left: 5vw;
     overflow: hidden;

@@ -36,29 +36,29 @@
             <%= expense.value %> <%= expense.currency.first(3) %>
           </h2>
         <% end %>
+<!--         <div> -->
+          <p>
+            <% if expense.splits.size != 1 %>
+              <button type="button" class="button-very-sm" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
+                <%= expense.splits.size %> people </p>
+              </button>
+            <% else %>
+              <button type="button" class="button-very-sm" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
+              <%= expense.splits.size %> person</p>
+              </button>
+            <% end %>
+        <!-- </div> -->
       </div>
 
       <div class="card-expenses-split">
         <div>
           <% expense.splits.each do |u| %>
             <% if u.user == current_user && u.paid == false %>
-              <p id="color-red">You Owe: <%= '%.2f' % (u.customsplit * u.expense.value) %> <%= u.expense.currency.first(3) %> </p>
+              <p id="color-red">You Owe: <br> <%= '%.2f' % (u.customsplit * u.expense.value) %> <%= u.expense.currency.first(3) %> or </p>
             <% elsif u.user == current_user && u.paid == true %>
-              <p id="color-green">You are owed: <%= '%.2f' % ((u.expense.value) - (u.expense.value * u.customsplit)) %> <%= u.expense.currency.first(3) %> </p>
+              <p id="color-blue">You are owed:  <br> <%= '%.2f' % ((u.expense.value) - (u.expense.value * u.customsplit)) %> <%= u.expense.currency.first(3) %> or </p>
             <% end %>
           <% end %>
-        </div>
-        <div>
-          <p> Split across:
-            <% if expense.splits.size != 1 %>
-              <button type="button" class="button-people" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
-                <%= expense.splits.size %> people </p>
-              </button>
-            <% else %>
-              <button type="button" class="button-people" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
-              <%= expense.splits.size %> person</p>
-              </button>
-            <% end %>
         </div>
       </div>
     </div>

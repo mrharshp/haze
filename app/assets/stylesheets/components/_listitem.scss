@@ -1,10 +1,11 @@
 .card-product {
   overflow: hidden;
   height: 100px;
-  background: $yellow;
+  background: $light-gray;
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.3);
 }
 
 .card-product img {
