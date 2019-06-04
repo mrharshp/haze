@@ -27,7 +27,6 @@
 </div>
 
 <div class="scroll">
-
   <% @group.expenses.each do |expense| %>
     <div class="card-expenses">
       <div class="card-expenses-infos">
@@ -52,11 +51,11 @@
         <div>
           <p> Split across:
             <% if expense.splits.size != 1 %>
-              <button type="button" class="button-people" data-toggle="modal" data-target="#exampleModalCenter">
+              <button type="button" class="button-people" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
                 <%= expense.splits.size %> people </p>
               </button>
             <% else %>
-              <button type="button" class="button-people" data-toggle="modal" data-target="#exampleModalCenter">
+              <button type="button" class="button-people" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
               <%= expense.splits.size %> person</p>
               </button>
             <% end %>
@@ -66,16 +65,18 @@
   <% end %>
 </div>
 
-
 <!-- Modal for seeing who the expense is split between -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered" role="document">
+<% @group.expenses.each do |expense| %>
+  <div class="modal fade" id="exampleModalCenter_<%= expense.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-
-          </div>
-          </div>
+          <% expense.splits.each do |split| %>
+            <p><%= split.user.name %></p>
+          <% end %>
       </div>
+    </div>
   </div>
+<% end %>
