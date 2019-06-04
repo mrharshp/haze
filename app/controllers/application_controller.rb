@@ -30,11 +30,13 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
+    # raise
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :homecurrency])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:photo])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:photo, :homecurrency])
+    # raise
   end
 
   def skip_pundit?

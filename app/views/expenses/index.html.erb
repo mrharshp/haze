@@ -15,6 +15,7 @@
     <p class="label-for-plus-btn">Add</p>
   </div>
 </div>
+
 <div class="d-flex m-2 justify-content-around">
   <%= link_to "Home", groups_path, class: "button-sm w-30" %>
   <%= link_to "Group Chat", group_path(@group), class: "button-sm w-30", id: "button-groupchat" %>
@@ -25,35 +26,57 @@
   Net Amount
 </div>
 
-      <div class="scroll">
-        <% @expenses.each do |expense| %>
-        <div class="card-expenses">
-          <div class="card-expenses-infos">
-                    <%= link_to edit_group_expense_path(@group, expense) do %>
-          <p><%= expense.description %></p>
-          <h2><%= expense.value %> <%= expense.currency.first(3) %></h2>
-                    <% end %>
-          </div>
-
-
-      <div class="card-expenses-split">
-        <% expense.splits.each do |u| %>
-          <% if u.user == current_user && u.paid == false %>
-            <p>You Owe: <%= '%.2f' % (u.customsplit * u.expense.value) %> <%= u.expense.currency %> </p>
-          <% elsif u.user == current_user && u.paid == true %>
-            <p>You are owed: <%= '%.2f' % ((u.expense.value) - (u.expense.value * u.customsplit)) %> <%= u.expense.currency %> </p>
-          <% end %>
+<div class="scroll">
+  <% @group.expenses.each do |expense| %>
+    <div class="card-expenses">
+      <div class="card-expenses-infos">
+        <%= link_to edit_group_expense_path(@group, expense) do %>
+          <p><%= expense.description %> <i class="fas fa-pencil-alt"></i></p>
+          <h2>
+            <%= expense.value %> <%= expense.currency.first(3) %>
+          </h2>
         <% end %>
-        <br>
-
-        <p> Split across:
-          <% if expense.splits.size != 1 %>
-            <%= expense.splits.size %> people </p>
-          <% else %>
-            <%= expense.splits.size %> person </p>
-          <% end %>
-        </div>
       </div>
 
-    <% end %>
+      <div class="card-expenses-split">
+        <div>
+          <% expense.splits.each do |u| %>
+            <% if u.user == current_user && u.paid == false %>
+              <p id="color-red">You Owe: <%= '%.2f' % (u.customsplit * u.expense.value) %> <%= u.expense.currency.first(3) %> </p>
+            <% elsif u.user == current_user && u.paid == true %>
+              <p id="color-green">You are owed: <%= '%.2f' % ((u.expense.value) - (u.expense.value * u.customsplit)) %> <%= u.expense.currency.first(3) %> </p>
+            <% end %>
+          <% end %>
+        </div>
+        <div>
+          <p> Split across:
+            <% if expense.splits.size != 1 %>
+              <button type="button" class="button-people" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
+                <%= expense.splits.size %> people </p>
+              </button>
+            <% else %>
+              <button type="button" class="button-people" data-toggle="modal" data-target="#exampleModalCenter_<%= expense.id %>">
+              <%= expense.splits.size %> person</p>
+              </button>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
+
+<!-- Modal for seeing who the expense is split between -->
+<% @group.expenses.each do |expense| %>
+  <div class="modal fade" id="exampleModalCenter_<%= expense.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          <% expense.splits.each do |split| %>
+            <p><%= split.user.name %></p>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

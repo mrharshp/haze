@@ -3,7 +3,6 @@ require 'json'
 
 class ExpensesController < ApplicationController
 before_action :find_expense, only: [:show, :edit, :update, :destroy]
-# before_action :footer, only: [:index, :new]
 
   def index
     @expenses = policy_scope(Expense)
@@ -31,8 +30,8 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
     @expense.value = params[:amount]
     @expense.currency = params[:currency]
     authorize @expense
-    # @paid_by_users_count = params[:paid_by][:user_ids].drop(1).length
-    # @split_between_users_count = params[:split_between][:user_ids].drop(1).length
+    @paid_by_users = params[:paid_by][:user_ids].drop(1)
+    @split_between_users = params[:split_between][:user_ids].drop(1)
     if @expense.save
       params[:split_between][:user_ids].drop(1).each do |u|
         member = u.to_i
@@ -47,7 +46,7 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
         authorize @split
         @split.save!
       end
-      redirect_to group_expenses_path(@group)
+      redirect_to(group_expenses_path(@group) + "?paid=#{@paid_by_users}&split=#{@split_between_users}")
     else
       render :new
     end
@@ -98,8 +97,4 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
       @final_currency << { country: country, symbol: cu }
     end
   end
-
-  # def footer
-  #   @footer = true
-  # end
 end

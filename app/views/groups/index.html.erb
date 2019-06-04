@@ -45,10 +45,10 @@
           </div>
           <%= f.submit "Create Group", class: "modal-button", remote: true %>
         <% end %>
+          </div>
+          </div>
       </div>
-    </div>
   </div>
-</div>
 
 <!-- Modal for Group- List, Expenses, Chat-->
 <% @groups.each do |group| %>
@@ -64,10 +64,7 @@
             <%= link_to "Lists", group_lists_path(group), class: "modal-button btn-group", id: "button-lists" %>
             <%= link_to "Expenses", group_expenses_path(group), class: "modal-button btn-group", id: "button-expenses" %>
         </div>
-            <!-- Add link for expenses here-->
       </div>
     </div>
   </div>
 <% end %>
-
-
