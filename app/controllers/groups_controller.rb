@@ -50,6 +50,8 @@ class GroupsController < ApplicationController
     @friend_email = params["friend_email"]
     @group_id = params["group_id"]
     UserMailer.with(friend_email: @friend_email, sender_name: current_user.name, group_id: @group_id).invite.deliver_now
+    flash[:notice] = "Email has been sent!"
+    redirect_to edit_group_path(@group_id)
    end
   end
 
