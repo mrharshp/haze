@@ -11,10 +11,12 @@
   margin: auto;
   border: none;
   text-decoration: none;
-  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
   color: $white;
   a {
     color: $white;
+  }
+  &:hover{
+    text-decoration: none;
   }
 }
 
@@ -31,7 +33,9 @@
   border: none;
   margin-right: 3px;
   text-decoration: none;
-  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
+  &:hover{
+    text-decoration: none;
+  }
 }
 
 .navbuttons {
@@ -46,7 +50,9 @@
   border: none;
   margin-right: 3px;
   text-decoration: none;
-  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
+  &:hover{
+    text-decoration: none;
+  }
 }
 
 .navbuttons-lg {
@@ -61,7 +67,9 @@
   border: none;
   margin: 5px;
   text-decoration: none;
-  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
+  &:hover{
+    text-decoration: none;
+  }
 }
 
 .home {
@@ -80,7 +88,6 @@
   background-color: $burgund;
 }
 
-
 .button-very-sm {
   font-size: 12px;
   display: flex;
@@ -94,26 +101,13 @@
   border: none;
   margin-right: 3px;
   margin-top: 5px;
-  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
 }
 
 #button-color-light-blue {
   background-color: $light-blue !important;
-}
-
-#button-groupchat {
-  background-color: $brick;
-  color: $white;
-}
-
-#button-expenses {
-  background-color: $burgund;
-  color: $white;
-}
-
-#button-lists {
-  background-color: $yellow;
-  color: $white;
+  &:hover{
+    text-decoration: none;
+  }
 }
 
 .button-hack {
