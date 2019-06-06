@@ -3,7 +3,6 @@ require 'securerandom'
 class GroupsController < ApplicationController
   before_action :find_group, only: [:show, :edit, :update]
   skip_after_action :verify_authorized, only: :invite
-  # before_action :footer, only: [:new]
 
   def index
     @group = Group.new
@@ -38,7 +37,7 @@ class GroupsController < ApplicationController
   def edit
     @user = current_user
     if params[:query].present?
-      sql_query = "name ILIKE :query OR email ILIKE :query"
+      sql_query = "first_name ILIKE :query OR last_name ILIKE :query OR email ILIKE :query"
       @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
     else
       @users = []
@@ -71,8 +70,4 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, :photo)
   end
-
-  # def footer
-  #   @footer = true
-  # end
 end

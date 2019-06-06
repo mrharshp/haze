@@ -7,7 +7,11 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
     <div class="form-inputs">
-      <%= f.input :name,
+      <%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "name" }%>
+      <%= f.input :last_name,
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "name" }%>
@@ -42,7 +46,7 @@
     </div>
   <% end %>
   <br>
-  <div class='button' id="button-color-light-blue">
+  <div>
     <%= render "devise/shared/links" %>
   </div>
   <br>
