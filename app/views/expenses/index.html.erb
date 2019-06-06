@@ -41,11 +41,11 @@
     <% end %>
   <% end %>
   <% if sum.round(2) <= 0 %>
-  <p id="owed">YOU ARE OWED</p>
-  <p id="sum"><%= sum.round(2) * (-1) %> <%= current_user.homecurrency.first(3) %></p>
+    <p id="owed">YOU ARE OWED</p>
+    <p id="sum"><%= sum.round(2) * (-1) %> <%= current_user.homecurrency.first(3) %></p>
   <% elsif sum.round(2) > 0 %>
-  <p id="owed">YOU OWE</p>
-  <p id="sum"><%= sum.round(2) %> <%= current_user.homecurrency.first(3) %></p>
+    <p id="owed">YOU OWE</p>
+    <p id="sum"><%= sum.round(2) %> <%= current_user.homecurrency.first(3) %></p>
   <% end %>
 </div>
 
@@ -105,6 +105,7 @@
           <% @owe = [] %>
           <% expense.splits.each do |split| %>
             <% if split.paid == true %>
+
               <% @paid << split.user.name %>
             <% else %>
               <% @owe << split.user.name %>
