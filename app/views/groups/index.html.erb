@@ -17,10 +17,34 @@
       <% if group.photo.url.nil? %>
         <div class="card-banner">
           <h4><%= group.name %></h4>
+          <% @user_votes_per_list = 0 %>
+          <% @list_items_per_group = 0 %>
+          <% group.lists.each do |list| %>
+            <% list.list_items.each do |list_item| %>
+              <% @user_votes_per_list += list_item.votes.where(user_id: @user).count %>
+            <% end %>
+            <% @list_items_per_group += list.list_items.count %>
+          <% end %>
+          <div class="notificationsdiv">
+            <p id="pending">Pending Votes</p>
+            <h4 id="notifications"><%= @list_items_per_group - @user_votes_per_list %></h4>
+          </div>
         </div>
       <% else %>
         <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path group.photo %>')">
           <h4><%= group.name %></h4>
+          <% @user_votes_per_list = 0 %>
+          <% @list_items_per_group = 0 %>
+          <% group.lists.each do |list| %>
+            <% list.list_items.each do |list_item| %>
+              <% @user_votes_per_list += list_item.votes.where(user_id: @user).count %>
+            <% end %>
+            <% @list_items_per_group += list.list_items.count %>
+          <% end %>
+          <div class="notificationsdiv">
+            <p id="pending">Pending Votes</p>
+            <h4 id="notifications"><%= @list_items_per_group - @user_votes_per_list %></h4>
+          </div>
         </div>
       <% end %>
     </div>

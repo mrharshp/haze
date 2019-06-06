@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :group_memberships
   has_many :splits
   has_many :groups, through: :group_memberships
+  has_many :votes, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
   def name
