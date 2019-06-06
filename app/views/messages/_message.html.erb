@@ -1,5 +1,5 @@
 <div class="message <%= user_is_messages_author ? "right" : "" %>">
   <%#= image_tag message.user.avatar_url, class: "avatar" %>
   <% color = GroupMembership.find_by(user: message.user, group: group).color %>
-  <div class="message-content" style="background-color: <%= "#{color}2e" %>"> <strong><%= message.user.name %> </strong><br> <%= message.content %></div>
+  <div class="message-content" style="background-color: <%= "#{color}3d" %>"> <strong><%= message.user.name %> </strong><br> <%= message.content %></div>
 </div>

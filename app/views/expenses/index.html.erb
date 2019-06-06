@@ -17,9 +17,10 @@
 </div>
 
 <div class="d-flex m-2 justify-content-around">
-  <%= link_to "Home", groups_path, class: "button-sm" %>
+  <%= link_to groups_path, class: "button-home" do %><i class="fas fa-home"></i><% end %>
   <%= link_to "Chat", group_path(@group), class: "button-sm", id: "button-groupchat" %>
   <%= link_to "Lists", group_lists_path(@group), class: "button-sm", id: "button-lists" %>
+  <%= link_to "Expenses", group_expenses_path(@group), class: "button-sm", id: "button-expenses"%>
 </div>
 
 <div class="mx-auto my-2 net-amount">
