@@ -43,15 +43,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $white;
   border-radius: 8px;
   width: 20vw;
   height: 6vh;
   border: none;
   margin-right: 3px;
   text-decoration: none;
+  border-style: solid;
+  border-width: 2px;
   &:hover{
-    text-decoration: none;
+   text-decoration: none;
   }
 }
 
@@ -73,19 +74,41 @@
 }
 
 .home {
-  background-color: $blue;
+  color: $blue;
+  background-color: #54AFC32e;
+}
+
+.chat-live {
+  color: $white;
+  background-color: $brick;
+  border: $brick;
+}
+
+.list-live {
+  color: $white;
+  background-color: $yellow;
+  border: $yellow;
+}
+
+.expense-live {
+  color: $white;
+  background-color: $burgund;
+  border: $burgund;
 }
 
 .chat {
-  background-color: $brick;
+  color: $brick;
+  background-color: #d149522e;
 }
 
 .list {
-  background-color: $yellow;
+  color: $yellow;
+  background-color: #FFD4562e;
 }
 
 .expense {
-  background-color: $burgund;
+  color: $burgund;
+  background-color: #6b0f1a2e;
 }
 
 .button-very-sm {
