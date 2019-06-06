@@ -26,11 +26,21 @@
     <%= link_to group_list_path(@group, list) do %>
       <% if list.photo.url.nil? %>
         <div class="card-banner">
-          <h4><%= list.name %></h4>
+            <h4><%= list.name %></h4>
+            <% @user_votes_per_list = 0 %>
+            <% list.list_items.each do |list_item| %>
+              <% @user_votes_per_list += list_item.votes.where(user_id: @user).count %>
+            <% end %>
+            <h4 id="notifications"><%= list.list_items.count - @user_votes_per_list %></h4>
         </div>
       <% else %>
         <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo %>')">
-          <h4><%= list.name %></h4>
+            <h4><%= list.name %></h4>
+            <% @user_votes_per_list = 0 %>
+            <% list.list_items.each do |list_item| %>
+              <% @user_votes_per_list += list_item.votes.where(user_id: @user).count %>
+            <% end %>
+            <h4 id="notifications"><%= list.list_items.count - @user_votes_per_list %></h4>
         </div>
       <% end %>
     <% end %>
@@ -55,5 +65,3 @@
     </div>
   </div>
 </div>
-
-
