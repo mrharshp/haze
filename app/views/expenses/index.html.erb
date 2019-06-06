@@ -17,10 +17,10 @@
 </div>
 
 <div class="d-flex m-2 justify-content-around">
-  <%= link_to groups_path, class: "button-home" do %><i class="fas fa-home"></i><% end %>
-  <%= link_to "Chat", group_path(@group), class: "button-sm", id: "button-groupchat" %>
-  <%= link_to "Lists", group_lists_path(@group), class: "button-sm", id: "button-lists" %>
-  <%= link_to "Expenses", group_expenses_path(@group), class: "button-sm", id: "button-expenses"%>
+  <%= link_to groups_path, class: "navbuttons home" do %><i class="fas fa-home"></i><% end %>
+  <%= link_to group_path(@group), class: "navbuttons chat" do %><i class="fas fa-comments"></i><% end %>
+  <%= link_to group_lists_path(@group), class: "navbuttons list" do %><i class="fas fa-list-ul"></i><% end %>
+  <%= link_to group_expenses_path(@group), class: "navbuttons expense" do %><i class="fas fa-money-bill-alt"></i><% end %>
 </div>
 
 <% sum = 0 %>

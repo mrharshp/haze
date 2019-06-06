@@ -59,10 +59,16 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <div>
-            <%= link_to "Chat", group_path(group), class: "modal-button btn-group", id: "button-groupchat" %>
-            <%= link_to "Lists", group_lists_path(group), class: "modal-button btn-group", id: "button-lists" %>
-            <%= link_to "Expenses", group_expenses_path(group), class: "modal-button btn-group", id: "button-expenses" %>
+        <div class="d-flex">
+          <%= link_to group_path(group), class: "navbuttons-lg chat" do %><i class="fas fa-comments" style="text-align: center;"> <div class="modal-text">
+            Chat
+          </div></i><% end %>
+          <%= link_to group_lists_path(group), class: "navbuttons-lg list" do %><i class="fas fa-list-ul" style="text-align: center;"> <div class="modal-text">
+            Lists
+          </div></i><% end %>
+          <%= link_to group_expenses_path(group), class: "navbuttons-lg expense" do %><i class="fas fa-money-bill-alt" style="text-align: center;"> <div class="modal-text">
+            Expenses
+          </div> </i><% end %>
         </div>
       </div>
     </div>

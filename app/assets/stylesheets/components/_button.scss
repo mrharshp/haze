@@ -34,21 +34,52 @@
   // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
 }
 
-.button-home {
-  font-size: 16px;
+.navbuttons {
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $blue;
   color: $white;
-  border-radius: 20px;
-  width: 10vw;
-  height: 36px;
+  border-radius: 8px;
+  width: 20vw;
+  height: 6vh;
   border: none;
   margin-right: 3px;
   text-decoration: none;
   // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
 }
+
+.navbuttons-lg {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  border-radius: 8px;
+  width: 28vw;
+  height: 12vh;
+  border: none;
+  margin: 5px;
+  text-decoration: none;
+  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
+}
+
+.home {
+  background-color: $blue;
+}
+
+.chat {
+  background-color: $brick;
+}
+
+.list {
+  background-color: $yellow;
+}
+
+.expense {
+  background-color: $burgund;
+}
+
 
 .button-very-sm {
   font-size: 12px;
