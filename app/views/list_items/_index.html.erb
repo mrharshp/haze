@@ -2,6 +2,8 @@
 <div class="card-product d-flex align-items-center">
     <% if item.photo.url.nil? %>
       <div style="display: none;"></div>
+    <% elsif item.url == "" %>
+      <div><%= cl_image_tag item.photo, crop: :fill %></div>
     <% else %>
       <div>
         <%= link_to "http://#{item.url}" do %>
