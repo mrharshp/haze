@@ -1,4 +1,18 @@
-.net-amount {
+.net-amount-blue {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border: 3px solid $blue;
+  box-shadow: 0 2.5px 5px rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blue;
+  color: white;
+  flex-direction: column;
+}
+
+.net-amount-red {
   width: 125px;
   height: 125px;
   border-radius: 50%;
