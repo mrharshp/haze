@@ -13,7 +13,7 @@
 </div>
 <div class="scroll-groups">
   <% @groups.each do |group| %>
-    <div type="button" data-toggle="modal" data-target="#exampleModalCenter_<%= group.id %>" data-group=<%= group.name %>>
+    <a data-toggle="modal" data-target="#exampleModalCenter_<%= group.id %>" data-group=<%= group.name %>>
       <% if group.photo.url.nil? %>
         <div class="card-banner">
           <h4><%= group.name %></h4>
@@ -23,7 +23,7 @@
           <h4><%= group.name %></h4>
         </div>
       <% end %>
-    </div>
+    </a>
   <% end %>
 </div>
 <div class="footer">
