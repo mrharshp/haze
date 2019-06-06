@@ -1,15 +1,15 @@
 .net-amount {
-  width: 125px;
-  height: 125px;
-  border-radius: 50%;
-  border: 3px solid $burgund;
-  box-shadow: 0 2.5px 5px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $light-gray;
-  color: $burgund;
-  flex-direction: column;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border: 3px solid #6B0F1A;
+  box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6B0F1A;
+  color: white;
+  flex-direction: column;
 }
 
 #owed {
