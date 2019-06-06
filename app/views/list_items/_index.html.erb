@@ -6,7 +6,7 @@
       <div><%= cl_image_tag item.photo, crop: :fill %></div>
     <% else %>
       <div>
-        <%= link_to "http://#{item.url}" do %>
+        <%= link_to "#{item.url}" do %>
           <%= cl_image_tag item.photo, crop: :fill %>
         <% end %>
       </div>
