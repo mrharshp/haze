@@ -60,13 +60,13 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <div class="d-flex">
-          <%= link_to group_path(group), class: "navbuttons-lg chat-live" do %><i class="fas fa-comments" style="text-align: center;"> <div class="modal-text">
+          <%= link_to group_path(group), class: "navbuttons-lg chat-live-modal" do %><i class="fas fa-comments" style="text-align: center;"> <div class="modal-text">
             Chat
           </div></i><% end %>
-          <%= link_to group_lists_path(group), class: "navbuttons-lg list-live" do %><i class="fas fa-list-ul" style="text-align: center;"> <div class="modal-text">
+          <%= link_to group_lists_path(group), class: "navbuttons-lg list-live-modal" do %><i class="fas fa-list-ul" style="text-align: center;"> <div class="modal-text">
             Lists
           </div></i><% end %>
-          <%= link_to group_expenses_path(group), class: "navbuttons-lg expense-live" do %><i class="fas fa-money-bill-alt" style="text-align: center;"> <div class="modal-text">
+          <%= link_to group_expenses_path(group), class: "navbuttons-lg expense-live-modal" do %><i class="fas fa-money-bill-alt" style="text-align: center;"> <div class="modal-text">
             Expenses
           </div> </i><% end %>
         </div>
