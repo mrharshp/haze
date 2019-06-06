@@ -11,7 +11,7 @@
   margin: auto;
   border: none;
   text-decoration: none;
-  box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
+  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
   color: $white;
   a {
     color: $white;
@@ -31,7 +31,7 @@
   border: none;
   margin-right: 3px;
   text-decoration: none;
-  box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
+  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
 }
 
 .button-very-sm {
@@ -47,7 +47,7 @@
   border: none;
   margin-right: 3px;
   margin-top: 5px;
-  box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
+  // box-shadow: 0px 2px 5px 0px rgba(100,100,100,0.6);
 }
 
 #button-color-light-blue {
@@ -55,12 +55,12 @@
 }
 
 #button-groupchat {
-  background-color: $brick;
+  background-color: $burgund;
   color: $white;
 }
 
 #button-expenses {
-  background-color: $burgund;
+  background-color: $brick;
   color: $white;
 }
 

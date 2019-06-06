@@ -45,10 +45,12 @@ class GroupsController < ApplicationController
    end
 
   def invite
-    if params["friend_email"].present?
-      @friend_email = params["friend_email"]
-      @group_id = params["group_id"]
-      UserMailer.with(friend_email: @friend_email, sender_name: current_user.name, group_id: @group_id).invite.deliver_now
+   if params["friend_email"].present?
+    @friend_email = params["friend_email"]
+    @group_id = params["group_id"]
+    UserMailer.with(friend_email: @friend_email, sender_name: current_user.name, group_id: @group_id).invite.deliver_now
+    flash[:notice] = "Email has been sent!"
+    redirect_to edit_group_path(@group_id)
    end
   end
 
