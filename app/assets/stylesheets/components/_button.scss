@@ -74,41 +74,63 @@
 }
 
 .home {
-  color: $blue;
-  background-color: #54AFC32e;
+  color: $gray;
+  background-color: $light-gray;
+  border: none;
 }
 
 .chat-live {
-  color: $white;
-  background-color: $brick;
-  border: $brick;
+  color: $brick;
+  background-color: $light-gray;
+  border: none;
 }
 
 .list-live {
-  color: $white;
-  background-color: $yellow;
-  border: $yellow;
+  color: $yellow;
+  background-color: $light-gray;
+  border: none;
 }
 
 .expense-live {
-  color: $white;
-  background-color: $burgund;
-  border: $burgund;
+  color: $burgund;
+  background-color: $light-gray;
+  border: none;
 }
 
 .chat {
-  color: $brick;
-  background-color: #d149522e;
+  color: $gray;
+  background-color: $light-gray;
+  border: none;
 }
 
 .list {
-  color: $yellow;
-  background-color: #FFD4562e;
+  color: $gray;
+  background-color: $light-gray;
+  border: none;
 }
 
 .expense {
-  color: $burgund;
-  background-color: #6b0f1a2e;
+  color: $gray;
+  background-color: $light-gray;
+  border: none;
+}
+
+.chat-live-modal {
+  color: $white;
+  background-color: $brick;
+  border: none;
+}
+
+.list-live-modal {
+  color: $white;
+  background-color: $yellow;
+  border: none;
+}
+
+.expense-live-modal {
+  color: $white;
+  background-color: $burgund;
+  border: none;
 }
 
 .button-very-sm {
