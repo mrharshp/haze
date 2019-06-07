@@ -27,7 +27,7 @@
   <br>
   <% @users.each do |u| %>
       <%= u.name %>, <%= u.email %>
-      <%= link_to "Add to group", group_group_memberships_path(@group, user: u), method: :post, class: "button-sm" %>
+      <%= link_to "Add to group", group_group_memberships_path(@group, user: u), method: :post, class: "button mt-2" %>
   <% end %>
   <br>
   <h5 style="color: #54AFC3;">Group Members</h5>
