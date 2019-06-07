@@ -20,13 +20,13 @@
               <% end %>
             </h2>
             <p><%= item.description %></p>
-            <p>Added by <%= item.user.name %></p>
+            <p>Added by <%= item.user.first_name %></p>
           </div>
         <% else %>
           <div>
             <h2><%= item.title %></h2>
             <p><%= item.description %></p>
-            <p>Added by <%= item.user.name %></p>
+            <p>Added by <%= item.user.first_name %></p>
           </div>
         <% end %>
     </div>

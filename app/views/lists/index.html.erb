@@ -31,7 +31,11 @@
             <% list.list_items.each do |list_item| %>
               <% @user_votes_per_list += list_item.votes.where(user_id: @user).count %>
             <% end %>
-            <h4 id="notifications"><%= list.list_items.count - @user_votes_per_list %></h4>
+            <% if list.list_items.count - @user_votes_per_list == 0 %>
+              <h4></h4>
+            <% else %>
+              <h4 id="notifications"><%= list.list_items.count - @user_votes_per_list %></h4>
+            <% end %>
         </div>
       <% else %>
         <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo %>')">
@@ -40,7 +44,11 @@
             <% list.list_items.each do |list_item| %>
               <% @user_votes_per_list += list_item.votes.where(user_id: @user).count %>
             <% end %>
-            <h4 id="notifications"><%= list.list_items.count - @user_votes_per_list %></h4>
+            <% if list.list_items.count - @user_votes_per_list == 0 %>
+              <h4></h4>
+            <% else %>
+              <h4 id="notifications"><%= list.list_items.count - @user_votes_per_list %></h4>
+            <% end %>
         </div>
       <% end %>
     <% end %>
