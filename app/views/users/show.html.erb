@@ -1,25 +1,19 @@
 <div class="header3">
   <h3 class="uppercase">My profile</h3>
 </div>
-<br>
-<br>
-<div class="container">
- <div class="d-flex flex-column align-items-center justify-content-center">
-   <% if current_user.photo.url %>
-    <%= cl_image_tag @user.photo, class: "avatar-large" %>
-   <% else %>
-    <h1 class="avatar-large nopic border text-center bg-success border-success p-4"> <%= current_user.name.first %> </h1>
-   <% end %>
-   <br>
-   <br>
-   <h5><%= @user.name %></h5>
-   <h5><%= @user.email %></h5>
-   <br>
-  <p>Your Home Currency is <%= @user.homecurrency %></p>
-   <br>
-   <p><%= link_to "Update Profile", edit_user_registration_path %></p>
-   <p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
-  </div>
+<div class="container my-5">
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <% if current_user.photo.url %>
+      <%= cl_image_tag @user.photo, class: "avatar-large" %>
+    <% else %>
+      <h1 class="avatar-large nopic border text-center bg-success border-success p-4"> <%= current_user.name.first %> </h1>
+    <% end %>
+    <h5 class="mt-2"><%= @user.name %></h5>
+    <h5 class="my-2"><%= @user.email %></h5>
+    <p class="text-center my-2">Your Home Currency is <%= @user.homecurrency %></p>
+    <p><%= link_to "Update Profile", edit_user_registration_path %></p>
+    <p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+    </div>
 </div>
 <div class="footer">
   <%= link_to "Groups", groups_path, class: "link-white" %>
